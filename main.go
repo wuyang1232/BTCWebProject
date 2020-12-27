@@ -1,13 +1,14 @@
 package main
 
 import (
+	"BTCWebProject/mysql"
 	_ "BTCWebProject/routers"
-	"fmt"
 	"github.com/astaxie/beego"
 )
 
 func main() {
-	fmt.Println("hello hanhan")
+	//数据库连接
+	mysql.Connect()
 	beego.Run()
 }
 
