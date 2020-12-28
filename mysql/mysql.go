@@ -24,7 +24,7 @@ func Connect()  {
 	fmt.Println("端口号为：",port)
 	driver := config.String("db_driver")//数据库驱动
 	dbUser := config.String("db_user")//用户名
-	dbPwd := config.String("db_possword")//密码
+	dbPwd := config.String("db_password")//密码
 	dbIp := config.String("db_ip")//ip地址
 	dbName := config.String("db_name")//数据库名称
 	//打开数据库
@@ -42,12 +42,12 @@ func Connect()  {
 func AddUser(u models.User) (int64,error) {
 	//1、将密码进行哈希计算
 	md5Hash := md5.New()
-	md5Hash.Write([]byte(u.Possword))
+	md5Hash.Write([]byte(u.Password))
 	passwordBytes := md5Hash.Sum(nil)
-	u.Possword = hex.EncodeToString(passwordBytes)
+	u.Password = hex.EncodeToString(passwordBytes)
 
 	result,err := DB.Exec("insert into user (user_name,password) values(?,?) ",
-		u.UserName,u.Possword)
+		u.UserName,u.Password)
 	if err != nil {
 		fmt.Println("保存信息失败，请重试",err.Error())
 		return -1,err
@@ -71,7 +71,7 @@ func QueryUserInfoByUserName(userName string) ([]models.User,error) {
 	users := make([]models.User,0)
 	for rows.Next() {
 		var user models.User
-		err = rows.Scan(&user.Possword,&user.UserName)
+		err = rows.Scan(&user.Password,&user.UserName)
 		if err != nil {
 			fmt.Println(err.Error())
 			return nil,err
@@ -79,4 +79,9 @@ func QueryUserInfoByUserName(userName string) ([]models.User,error) {
 		users = append(users,user)
 	}
 	return users,nil
+}
+
+//根据命令查询信息
+func QueryInfoByCommand(command string)  {
+
 }

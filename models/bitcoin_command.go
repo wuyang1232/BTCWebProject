@@ -1,6 +1,6 @@
 package models
 
-//获取
+//获取区块信息
 type GetBlock struct {
 	Hash          string   `json:"hash"`
 	Confirmations int64    `json:"confirmations"`
