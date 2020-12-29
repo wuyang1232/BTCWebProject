@@ -71,7 +71,7 @@ func QueryUserInfoByUserName(u models.User) ([]models.User,error) {
 	users := make([]models.User,0)
 	for rows.Next() {
 		var user models.User
-		err = rows.Scan(&user.Password,&user.UserName)
+		err = rows.Scan(&user.UserName,&user.Password)
 		if err != nil {
 			fmt.Println(err.Error())
 			return nil,err
@@ -81,11 +81,6 @@ func QueryUserInfoByUserName(u models.User) ([]models.User,error) {
 	return users,nil
 }
 
-
-//将数据保存到数据库当中
-func Save()  {
-	
-}
 //根据命令查询信息
 func QueryInfoByCommand(getblock string)  {
 	DB.Query("select * from getblock")
