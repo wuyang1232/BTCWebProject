@@ -63,8 +63,8 @@ func AddUser(u models.User) (int64, error) {
 }
 
 //通过用户名查询用户信息
-func QueryUserInfoByUserName(userName string) ([]models.User, error) {
-	rows, err := DB.Query("select * from user where username = ?", userName)
+func QueryUserInfoByUserName(u models.User) ([]models.User, error) {
+	rows, err := DB.Query("select * from user where username = ? and password = ?", u.UserName, u.Password)
 	if err != nil {
 		fmt.Println("用户名查询失败，请重试", err.Error())
 		return nil, err
