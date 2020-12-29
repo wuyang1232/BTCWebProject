@@ -1,13 +1,9 @@
 package main
 
 import (
-<<<<<<< HEAD
+
 	_"BTCWebProject/routers"
-	"fmt"
-=======
 	"BTCWebProject/mysql"
-	_ "BTCWebProject/routers"
->>>>>>> master
 	"github.com/astaxie/beego"
 )
 

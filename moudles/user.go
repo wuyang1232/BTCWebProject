@@ -3,7 +3,6 @@ package moudles
 import (
 	"BTCWebProject/mysql"
 	"crypto/md5"
-	"database/sql"
 	"encoding/hex"
 	"fmt"
 )

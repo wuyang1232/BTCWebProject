@@ -1,4 +1,4 @@
-package models
+package moudles
 
 import (
 	"BTCWebProject/mysql"
