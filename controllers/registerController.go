@@ -1,7 +1,12 @@
 package controllers
 
 import (
+<<<<<<< HEAD
 	"BTCWebProject/moudles"
+=======
+	"BTCWebProject/models"
+	"fmt"
+>>>>>>> master
 	"github.com/astaxie/beego"
 )
 
@@ -22,7 +27,17 @@ func (r *RegisterController) Post(){
 		return
 	}
 	//2、将解析到的数据保存到数据库中
-	//if len(user.Username) > 0{
-	//	row , err := user.add
-	//}
+	if len(user.UserName) > 0 && len(user.Password) > 0{
+		row , err := models.AddUser(user)
+		if err != nil{
+			fmt.Println(err.Error())
+			r.Ctx.WriteString("数据导入数据库时出错")
+		}
+		fmt.Println(row)
+		//3、将处理结果返回给客户端浏览器
+		//成功就跳转登录页面
+		r.TplName = "login.html"
+	}else if len(user.UserName)> 20 && len(user.Password) > 20 {
+		r.Ctx.WriteString("用户名或者密码长度错误")
+	}
 }
