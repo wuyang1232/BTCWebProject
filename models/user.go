@@ -3,6 +3,7 @@ package models
 import (
 	"BTCWebProject/mysql"
 	"crypto/md5"
+	"database/sql"
 	"encoding/hex"
 	"fmt"
 )
@@ -37,23 +38,22 @@ func AddUser(u User) (int64, error) {
 
 //通过用户名查询用户信息
 
-func QueryUserInfoByUserName(u User) ([]User, error) {
-	rows, err := mysql.DB.Query("select * from user where username = ? and password = ?", u.UserName, u.Password)
+func QueryUserInfoByUserName(u User) (*sql.Row, error) {
+	md5Hash := md5.New()
+	md5Hash.Write([]byte(u.Password))
+	passwordBytes := md5Hash.Sum(nil)
+	u.Password = hex.EncodeToString(passwordBytes)
+	row := mysql.DB.QueryRow("select username from user where username = ? and password = ?", u.UserName, u.Password)
+	err := row.Scan(&u.UserName)
 	if err != nil {
 		fmt.Println("用户名查询失败，请重试", err.Error())
 		return nil, err
 	}
-	users := make([]User, 0)
-	for rows.Next() {
-		var user User
-		err = rows.Scan(&user.Password, &user.UserName)
-		if err != nil {
-			fmt.Println(err.Error())
-			return nil, err
-		}
-		users = append(users, user)
-	}
-	return users, nil
+	//err = row.Scan(&u.UserName,&u.Password)                                                                                               //浏览，读取
+	//if err != nil {
+	//	return nil, err
+	//}
+	return row, nil
 }
 
 
