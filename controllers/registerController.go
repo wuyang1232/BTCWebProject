@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"BTCWebProject/models"
-	"BTCWebProject/mysql"
 	"fmt"
 	"github.com/astaxie/beego"
 )
@@ -25,7 +24,7 @@ func (r *RegisterController) Post(){
 	}
 	//2、将解析到的数据保存到数据库中
 	if len(user.UserName) > 0 && len(user.Password) > 0{
-		row , err := mysql.AddUser(user)
+		row , err := models.AddUser(user)
 		if err != nil{
 			fmt.Println(err.Error())
 			r.Ctx.WriteString("数据导入数据库时出错")

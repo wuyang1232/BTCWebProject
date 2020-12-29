@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"BTCWebProject/models"
-	"BTCWebProject/mysql"
 	"database/sql"
 	"fmt"
 	"github.com/astaxie/beego"
@@ -28,7 +27,7 @@ func (l *LoginController)Post(){
 		return
 	}
 	//2、根据解析到的数据，执行数据库查询操作
-	_, err = mysql.QueryUserInfoByUserName(user)
+	_, err = models.QueryUserInfoByUserName(user)
 	//3、判断该用户是否存在
 	if err != nil{
 		fmt.Println(err.Error())
