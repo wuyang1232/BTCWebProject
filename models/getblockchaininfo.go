@@ -20,13 +20,13 @@ func (c GetBlockChainInfo)SaveGetBlockChainInfo()(int64,error)  {
 	result,err := mysql.DB.Exec("insert into getblockchaininfo(chain,blocks,headers,best_block_hash,difficulty)",
 		c.Chain,c.Blocks,c.Headers,c.Bestblockhash,c.Difficulty)
 	if err != nil {
-		fmt.Println("保存数据失败，请重试",err.Error())
-		return -1,err
+		fmt.Println("保存数据失败，请重试", err.Error())
+		return -1, err
 	}
 	rows,err := result.RowsAffected()//影响的行数
 	if err != nil {
-		fmt.Println("保存数据失败，请稍后在试",err.Error())
-		return -1,err
+		fmt.Println("保存数据失败，请稍后在试", err.Error())
+		return -1, err
 	}
-	return rows,nil
+	return rows, nil
 }

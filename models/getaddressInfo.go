@@ -33,14 +33,14 @@ func (a GetAddressInfo)SaveGetAddressInfoData()(int64,error)  {
 		a.Address,a.ScriptPubkey,a.Ismine,a.solvable,a.Desc,a.Iswatchonly,a.Isscript,a.Iswitness,a.Witness_version,a.Witness_program,a.Pubkey,
 		a.Ischange,a.Timestamp,a.Hdkeypath,a.Hdseedid,a.Hdmasterfingerprint,a.Lables)
 	if err != nil {
-		fmt.Println("保存数据失败，请重试",err.Error())
-		return -1,err
+		fmt.Println("保存数据失败，请重试", err.Error())
+		return -1, err
 	}
 	rows,err :=result.RowsAffected()//影响的行数
 	if err != nil {
-		fmt.Println("保存数据失败，请稍后再试",err.Error())
-		return -1,err
+		fmt.Println("保存数据失败，请稍后再试", err.Error())
+		return -1, err
 	}
-	return rows,nil
+	return rows, nil
 
 }

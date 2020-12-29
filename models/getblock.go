@@ -34,13 +34,13 @@ func (b GetBlock)SaveGetBlockData() (int64,error) {
 	b.Hash,b.Confirmations,b.Strippedsize,b.Size,b.Weight,b.Height,b.Version,b.VersionHex,b.Merkleroot,b.Tx,
 	b.Time,b.Mediantime,b.Nonce,b.Bits,b.Difficulty,b.Chainwork,b.NTx,b.Nextblockhash)
 	if err != nil {
-		fmt.Println("插入数据失败，请重试：",err.Error())
-		return -1,nil
+		fmt.Println("插入数据失败，请重试：", err.Error())
+		return -1, nil
 	}
 	rows,err := result.RowsAffected()//影响的行数
 	if err != nil {
-		fmt.Println("保存数据失败，请稍后再试",err.Error())
-		return -1,nil
+		fmt.Println("保存数据失败，请稍后再试", err.Error())
+		return -1, nil
 	}
-	return rows,nil
+	return rows, nil
 }
