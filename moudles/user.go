@@ -1,4 +1,4 @@
-package models
+package moudles
 
 type User struct {
 	Id int `form:"id"`

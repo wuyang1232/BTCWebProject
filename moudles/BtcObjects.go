@@ -1,4 +1,4 @@
-package models
+package moudles
 //该结构体用于解析比特币节点返回数据
 type BTCResult struct {
 	Result interface{} `json:"result"`

@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"BTCWebProject/models"
+	"BTCWebProject/moudles"
 	"github.com/astaxie/beego"
 )
 
@@ -15,7 +15,7 @@ func (r *RegisterController)Get(){
 
 func (r *RegisterController) Post(){
 	//1、解析用户端提交的请求数据
-	var user models.User
+	var user moudles.User
 	err := r.ParseForm(&user)
 	if err != nil{
 		r.Ctx.WriteString("用户注册时，输入数据解析失败")
