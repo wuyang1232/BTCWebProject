@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"BTCWebProject/models"
+	"BtcProjectGroup/BTCWebProject/models"
 	"github.com/astaxie/beego"
 )
 

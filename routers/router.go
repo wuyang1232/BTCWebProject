@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"BTCWebProject/controllers"
+	"BtcProjectGroup/BTCWebProject/controllers"
 	"github.com/astaxie/beego"
 )
 

@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "BTCWebProject/routers"
+	_"BtcProjectGroup/BTCWebProject/routers"
 	"fmt"
 	"github.com/astaxie/beego"
 )
