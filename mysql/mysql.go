@@ -4,11 +4,10 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/astaxie/beego"
-	_ "大一下学期/github.com/go-sql-driver/mysql"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var DB *sql.DB
-
 //连接数据库
 func Connect() {
 	//获取配置信息
@@ -36,6 +35,8 @@ func Connect() {
 	DB = db
 	fmt.Println(DB)
 }
-
-
+//根据命令查询信息
+func QueryInfoByCommand(getblock string)  {
+	DB.Query("select * from getblock")
+}
 

@@ -9,7 +9,7 @@ import (
 )
 
 type User struct {
-	Id int `form:"id"`
+	Id       int    `form:"id"`
 	UserName string `form:"username"`
 	Password string `form:"password"`
 }
@@ -21,7 +21,6 @@ func AddUser(u User) (int64, error) {
 	md5Hash.Write([]byte(u.Password))
 	passwordBytes := md5Hash.Sum(nil)
 	u.Password = hex.EncodeToString(passwordBytes)
-
 	result, err := mysql.DB.Exec("insert into user (username,password) values(?,?) ",
 		u.UserName, u.Password)
 	if err != nil {
@@ -38,30 +37,30 @@ func AddUser(u User) (int64, error) {
 
 //通过用户名查询用户信息
 
-func QueryUserInfoByUserName(u User) (*sql.Row, error) {
+func QueryUserInfoByUserName(u User) (*User, error) {
+	//1、将密码进行哈希计算
+
 	md5Hash := md5.New()
 	md5Hash.Write([]byte(u.Password))
 	passwordBytes := md5Hash.Sum(nil)
 	u.Password = hex.EncodeToString(passwordBytes)
-	row := mysql.DB.QueryRow("select username from user where username = ? and password = ?", u.UserName, u.Password)
-	err := row.Scan(&u.UserName)
+	row := mysql.DB.QueryRow("select username from user where  password = ? and username = ?", u.Password,u.UserName)
+	var user User
+	err := row.Scan( &user.UserName)
 	if err != nil {
-		fmt.Println("用户名查询失败，请重试", err.Error())
+		fmt.Println("错误是：",err.Error())
 		return nil, err
 	}
 	//err = row.Scan(&u.UserName,&u.Password)                                                                                               //浏览，读取
 	//if err != nil {
 	//	return nil, err
 	//}
-	return row, nil
-}
-
-
-//将数据保存到数据库当中
-func Save()  {
+	return &user, nil
 
 }
+
+
 //根据命令查询信息
-func QueryInfoByCommand(getblock string)  {
+func QueryInfoByCommand(getblock string) {
 	mysql.DB.Query("select * from getblock")
 }

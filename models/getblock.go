@@ -28,15 +28,16 @@ type GetBlock struct {
 }
 
 //将从bitcoin中拿到的数据保存到数据库中
-func (b GetBlock) SaveGetBlockData() (int64, error) {
-	result, err := mysql.DB.Exec("insert into getblock(hash,confirmations,stripped_size,size,weight,height,version,version_hex,merkle_root,tx,time,mediantime,nonce,bits,difficulty,chainwork,ntx,nextblockhash)",
-		b.Hash, b.Confirmations, b.Strippedsize, b.Size, b.Weight, b.Height, b.Version, b.VersionHex, b.Merkleroot, b.Tx,
-		b.Time, b.Mediantime, b.Nonce, b.Bits, b.Difficulty, b.Chainwork, b.NTx, b.Nextblockhash)
+func (b GetBlock)SaveGetBlockData() (int64,error) {
+	//插入数据
+	result,err := mysql.DB.Exec("insert into getblock(hash,confirmations,stripped_size,size,weight,height,version,version_hex,merkle_root,tx,time,mediantime,nonce,bits,difficulty,chainwork,ntx,nextblockhash)",
+	b.Hash,b.Confirmations,b.Strippedsize,b.Size,b.Weight,b.Height,b.Version,b.VersionHex,b.Merkleroot,b.Tx,
+	b.Time,b.Mediantime,b.Nonce,b.Bits,b.Difficulty,b.Chainwork,b.NTx,b.Nextblockhash)
 	if err != nil {
 		fmt.Println("插入数据失败，请重试：", err.Error())
 		return -1, nil
 	}
-	rows, err := result.RowsAffected()
+	rows,err := result.RowsAffected()//影响的行数
 	if err != nil {
 		fmt.Println("保存数据失败，请稍后再试", err.Error())
 		return -1, nil
