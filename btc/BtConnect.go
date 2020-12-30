@@ -1,7 +1,7 @@
 package btc
 
 import (
-	moudles2 "BTCWebProject/moudles"
+	moudles2 "BTCWebProject/modles"
 	"bytes"
 	"encoding/base64"
 	"encoding/json"

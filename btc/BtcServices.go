@@ -1,17 +1,17 @@
 package btc
 
 import (
-	"BTCWebProject/moudles"
+	"BTCWebProject/modles"
 	"github.com/mitchellh/mapstructure"
 )
 
 //比特币节点命令 getblockchaininfo 的封装函数
-func GetBlockChainInfo()(*moudles.BlockChainInfo,error)  {
+func GetBlockChainInfo()(*modles.BlockChainInfo,error)  {
 	result, err := GetMsgByCommand("getblockchaininfo")
 	if err != nil {
 		return nil,err
 	}
-	var blockchain moudles.BlockChainInfo
+	var blockchain modles.BlockChainInfo
 	err = mapstructure.Decode(result.Result, &blockchain)
 	if err != nil{
 		return nil,err
@@ -57,12 +57,12 @@ func GetBlockHashByHeight(height int64) (interface{}, error) {
 }
 
 //比特币节点命令 getblock 的封装函数
-func GetBlockByHash(hash string) (*moudles.Blcok,error) {
+func GetBlockByHash(hash string) (*modles.Blcok,error) {
 	result, err:= GetMsgByCommand("getblock", hash)
 	if err != nil {
 		return nil, err
 	}
-	var block moudles.Blcok
+	var block modles.Blcok
 	err = mapstructure.Decode(result.Result, &block)
 	if err != nil {
 		return nil,err
@@ -71,12 +71,12 @@ func GetBlockByHash(hash string) (*moudles.Blcok,error) {
 }
 
 //比特币节点命令 getblockheader hash的封装函数
-func GetBlockHeaderByHash(hash string) (*moudles.BlockHeader,error) {
+func GetBlockHeaderByHash(hash string) (*modles.BlockHeader,error) {
 	result, err:= GetMsgByCommand("getblockheader", hash)
 	if err != nil {
 		return nil, err
 	}
-	var block moudles.BlockHeader
+	var block modles.BlockHeader
 	err = mapstructure.Decode(result.Result, &block)
 	if err != nil {
 		return nil,err
