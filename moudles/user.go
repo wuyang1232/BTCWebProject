@@ -1,9 +1,8 @@
-package models
+package moudles
 
 import (
 	"BTCWebProject/mysql"
 	"crypto/md5"
-
 	"encoding/hex"
 	"fmt"
 )
