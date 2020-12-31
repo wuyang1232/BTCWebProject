@@ -1,8 +1,12 @@
 package btc
 
 import (
+<<<<<<< HEAD
 	_ "BTCWebProject/moudles"
 	"BtcGoWeb/moudles"
+=======
+	moudles2 "BTCWebProject/moudles"
+>>>>>>> master
 	"bytes"
 	"encoding/base64"
 	"encoding/json"
@@ -23,7 +27,7 @@ parms：参数
 return 将rpc请求所需的数据打包并序列化为json格式
  */
 func GetBTCJsonStr(method string, parms ...interface{}) string {
-	obj := new(moudles.BTCJson)
+	obj := new(moudles2.BTCJson)
 	obj.Jsonrpc = "2.0"
 	obj.Id = strconv.FormatInt(time.Now().Unix(), 10)
 	obj.Method = method
@@ -42,7 +46,7 @@ jsonStr： json格式的请求数据
 BTCResult： rpc请求比特币节点的结果集
 error :请求数据或解析遇到的错误
  */
-func Excute(jsonStr string) (*moudles.BTCResult, error) {
+func Excute(jsonStr string) (*moudles2.BTCResult, error) {
 	clinet := &http.Client{}
 	req, err := http.NewRequest("POST", rpcUrl, bytes.NewBuffer([]byte(jsonStr)))
 	if err != nil {
@@ -61,7 +65,7 @@ func Excute(jsonStr string) (*moudles.BTCResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	var rpcResult moudles.BTCResult
+	var rpcResult moudles2.BTCResult
 	err = json.Unmarshal(body, &rpcResult)
 	if err != nil {
 		return nil, err
@@ -74,7 +78,7 @@ func Excute(jsonStr string) (*moudles.BTCResult, error) {
 	parms ：命令对应的具体参数
 	return：比特币 Result
  */
-func GetMsgByCommand(method string, parms ...interface{}) (*moudles.BTCResult, error) {
+func GetMsgByCommand(method string, parms ...interface{}) (*moudles2.BTCResult, error) {
 	jsonStr := GetBTCJsonStr(method, parms...)
 	fmt.Println(jsonStr)
 	return Excute(jsonStr)
