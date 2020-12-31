@@ -1,7 +1,7 @@
 package btc
 
 import (
-	_ "BTCWebProject/models"
+	_ "BTCWebProject/moudles"
 	"BtcGoWeb/moudles"
 	"bytes"
 	"encoding/base64"
