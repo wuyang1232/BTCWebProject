@@ -7,6 +7,27 @@ import (
 	"net/http"
 )
 
+/**
+1、使用GO自带的http包下的Get函数去拿到对应网站url的响应，我们要的数据在响应体里面
+		response,err:= http.Get(url)
+2、判断一下我们的Get请求是否成功？ 两百状态码为请求成功
+		response.StatusCode ==200
+
+3、将我们拿到的response中的响应体 Body读出来，这里用ioutil包下的readAll方法，
+		bodyBytes，err ：= ioutil.ReadAll(response.Body)
+		bodyBytes是字节切片类型，0-255 我们看不懂，所以就强转一下string打印输出看一下是不是我们要结果
+
+4、如果打印出来的结果没问题，就意味着我们调用api接口成功拿到了数据。
+	然后我们需要把他的类型转化一下，把json格式转换成go语言中对应的数据类型。而go中的诸多类型中只有struct最为合适，
+	所以我们定义一下struct：一个属性对应一个字段名，如果属性的结构体还是复杂数据类型（不是int string bool float）则也需要为该属性定义struct来表示，否则会接收失败。
+5、定义好结构体类型后，就可以开始反序列化了
+	json格式的序列化和反序列化： 在go语言的 encoding/json 包中定义好了，直接拿来用
+	Unmarshal方法(反序列化): json数据类型转为go语言的对应数据类型
+	Marshal方法(序列化) ：go语言数据类型转为json数据类型
+ 	err = json.Unmarshal(bodyBytes, &result)
+	反序列化没问题的话，就可以通过我们的定义的字段名得出对应的值。
+这个api接口调用数据就差不多写好了，然后再进行优化，这个网址的api调用block数据就ok了
+*/
 func main() {
 	//fmt.Println("hello world")
 	//response, err := http.Get("https://www.blockchain.com/btc/block/0")
@@ -52,7 +73,7 @@ func main() {
 		fmt.Println("反序列化失败：", err.Error())
 		return
 	}
-	//如果程序走到这里，就意味着我们的结构体反序列化成功了，我们可以通过字段名访问对应的数据
+	//如果程序走到这里，就意味着结构体反序列化成功，我们可以通过字段名访问对应的数据
 	//测试打印返回的区块高度和区块hash
 	fmt.Println("区块高度为：", result.Data.Height)
 	fmt.Println("区块hash为：", result.Data.Hash)
@@ -62,6 +83,9 @@ func main() {
 
 /**
  * 定义返回数据结构体Result，接收网页请求返回的数据
+ * 使用json解析工具(http://json.cn/),把页面请求到的json数据放进去
+ * 得到五个字段：data、err_code、err_no、message、status
+ * 字段名定义时注意首字母大写，使能让其它包调用
  */
 type Result struct {
 	Data BlockData `json:"data"`
