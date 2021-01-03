@@ -1,10 +1,8 @@
 package main
 
 import (
-	"BTCWebProject/btc"
-	_"BTCWebProject/routers"
 	"BTCWebProject/mysql"
-	"fmt"
+	_ "BTCWebProject/routers"
 	"github.com/astaxie/beego"
 )
 
@@ -17,11 +15,11 @@ func main() {
 
 	//数据库连接
 	mysql.Connect()
-	blockHeader, err := btc.GetBlockHeaderByHash("000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f")
-	if err !=nil {
-		fmt.Println(err.Error())
-	}
-	fmt.Println(blockHeader.Hash)
+	//blockHeader, err := btc.GetBlockHeaderByHash("000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f")
+	//if err !=nil {
+	//	fmt.Println(err.Error())
+	//}
+	//fmt.Println(blockHeader.Hash)
 	beego.Run()
 }
 

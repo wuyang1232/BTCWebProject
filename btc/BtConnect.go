@@ -1,12 +1,12 @@
 package btc
 
 import (
-<<<<<<< HEAD
+
 	_ "BTCWebProject/moudles"
-	"BtcGoWeb/moudles"
-=======
+
+
 	moudles2 "BTCWebProject/moudles"
->>>>>>> master
+
 	"bytes"
 	"encoding/base64"
 	"encoding/json"
