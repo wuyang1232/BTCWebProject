@@ -33,7 +33,7 @@ type Blcok struct {
 	Version       int64    `json:"version"`
 	VersionHex    string   `json:"version_hex"`
 	Merkleroot    string   `json:"merkleroot"`
-	Tx            []string `json:"merkleroot"`
+	Tx            []string `json:"tx"`
 	Time          int64    `json:"time"`
 	Mediantime    int64    `json:"mediantime"`
 	Nonce         int64    `json:"nonce"`
