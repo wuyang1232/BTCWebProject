@@ -109,7 +109,7 @@ type BlockData struct {
 	Size int64 `json:"size"`
 	PoolDifficulty int64 `json:"pool_difficulty"`
 	Difficulty int64 `json:"difficulty"`
-	DifficultyDouble int64 `json:"difficulty_double"`
+	DifficultyDouble float64 `json:"difficulty_double"`
 	RewardBlock int64 `json:"reward_block"`
 	RewardFees int64 `json:"reward_fees"`
 	Confirmations int64 `json:"confirmations"`
