@@ -40,6 +40,5 @@ func (l *LoginController)Post(){
 		fmt.Println("这里也走了")
 		l.TplName = "home.html" //用户存在，跳转到主页面
 	}
-
 }
 

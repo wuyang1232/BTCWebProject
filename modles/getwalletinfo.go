@@ -4,21 +4,10 @@ import (
 	"BTCWebProject/mysql"
 	"fmt"
 )
-
-//获取钱包信息
-type GetWalletInfo struct {
-	Walletversion  int64   `json:"walletversion"`
-	balance        float64 `json:"balance"`
-	Txcount        int64   `json:"txcount"`
-	Keypoololdest  int64   `json:"keypoololdest"`
-	keypoolsize    int64   `json:"keypoolsize"`
-	unlocked_until int64   `json:"unlocked_until"`
-}
-
-//将钱包信息
-func (w GetWalletInfo) SaveGetWalletInfo() (int64, error) {
+//将钱包信息  //getwalletinfo
+func (w WalletInfo) SaveGetWalletInfo() (int64, error) {
 	//插入数据
-	result, err := mysql.DB.Exec("insert into getwalletinfo(walletversion,balance,txcount,keypoololdest,keypoolsize,unlocked_until)",
+	result, err := mysql.DB.Exec("insert into getwalletinfo(walletversion,balance,txcount,keypoololdest,keypoolsize,unlocked_until)values (?,?,?,?,?,?)",
 		w.Walletversion, w.balance, w.Txcount, w.Keypoololdest, w.keypoolsize, w.unlocked_until)
 	if err != nil {
 		fmt.Println("保存数据失败,请重试：",err.Error())
