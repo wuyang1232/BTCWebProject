@@ -1,9 +1,8 @@
 package main
 
 import (
-
-	_"BTCWebProject/routers"
 	"BTCWebProject/mysql"
+	_ "BTCWebProject/routers"
 	"github.com/astaxie/beego"
 )
 
@@ -16,7 +15,14 @@ func main() {
 
 	//数据库连接
 	mysql.Connect()
+	//result, err := btc.GetBestBlockHash()
+	//if err != nil{
+	//	fmt.Println("获取最新区块的hash值错误",err.Error())
+	//	return
+	//}
+	//fmt.Println("最新区块的hash值",result)
 
 	beego.Run()
+
 }
 

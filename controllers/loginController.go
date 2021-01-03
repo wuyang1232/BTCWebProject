@@ -38,7 +38,8 @@ func (l *LoginController)Post(){
 	//4、根据查询结果，返回客户相应的信息 并跳转主页面
 	if u != nil{
 		fmt.Println("这里也走了")
-		l.TplName = "home.html" //用户存在，跳转到主页面
+		l.Data["Username"] = u.UserName //动态数据设置
+		l.TplName = "showrpc.html" //用户存在，跳转到主页面
 	}
 
 }
