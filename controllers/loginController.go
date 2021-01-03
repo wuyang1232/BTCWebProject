@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"BTCWebProject/moudles"
+	"BTCWebProject/modles"
 	"database/sql"
 	"fmt"
 	"github.com/astaxie/beego"
@@ -18,7 +18,7 @@ func (l *LoginController)Get(){
 var DB *sql.DB
 func (l *LoginController)Post(){
 	//1、解析用户端提交的请求数据
-	var user moudles.User
+	var user modles.User
 	err := l.ParseForm(&user)//地址读取
 	fmt.Println(user)
 	if err != nil{
@@ -27,7 +27,7 @@ func (l *LoginController)Post(){
 		return
 	}
 	//2、根据解析到的数据，执行数据库查询操作
-	u, err := moudles.QueryUserInfoByUserName(user)
+	u, err := modles.QueryUserInfoByUserName(user)
 	//3、判断该用户是否存在
 	fmt.Println("这里走了")
 	if err != nil{
@@ -41,6 +41,5 @@ func (l *LoginController)Post(){
 		l.Data["Username"] = u.UserName //动态数据设置
 		l.TplName = "showrpc.html" //用户存在，跳转到主页面
 	}
-
 }
 

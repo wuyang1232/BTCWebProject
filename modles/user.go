@@ -1,9 +1,8 @@
-package moudles
+package modles
 
 import (
 	"BTCWebProject/mysql"
-	"crypto/md5"
-	"encoding/hex"
+	"BTCWebProject/utils"
 	"fmt"
 )
 
@@ -16,10 +15,7 @@ type User struct {
 //将用户信息保存到数据库当中
 func AddUser(u User) (int64, error) {
 	//1、将密码进行哈希计算
-	md5Hash := md5.New()
-	md5Hash.Write([]byte(u.Password))
-	passwordBytes := md5Hash.Sum(nil)
-	u.Password = hex.EncodeToString(passwordBytes)
+	u.Password = utils.Md5Hash(u.Password)
 	result, err := mysql.DB.Exec("insert into user (username,password) values(?,?) ",
 		u.UserName, u.Password)
 	if err != nil {
@@ -35,14 +31,9 @@ func AddUser(u User) (int64, error) {
 }
 
 //通过用户名查询用户信息
-
 func QueryUserInfoByUserName(u User) (*User, error) {
 	//1、将密码进行哈希计算
-
-	md5Hash := md5.New()
-	md5Hash.Write([]byte(u.Password))
-	passwordBytes := md5Hash.Sum(nil)
-	u.Password = hex.EncodeToString(passwordBytes)
+	u.Password = utils.Md5Hash(u.Password)
 	row := mysql.DB.QueryRow("select username from user where  password = ? and username = ?", u.Password,u.UserName)
 	var user User
 	err := row.Scan( &user.UserName)
@@ -50,16 +41,7 @@ func QueryUserInfoByUserName(u User) (*User, error) {
 		fmt.Println("错误是：",err.Error())
 		return nil, err
 	}
-	//err = row.Scan(&u.UserName,&u.Password)                                                                                               //浏览，读取
-	//if err != nil {
-	//	return nil, err
-	//}
 	return &user, nil
 
 }
 
-
-//根据命令查询信息
-func QueryInfoByCommand(getblock string) {
-	mysql.DB.Query("select * from getblock")
-}

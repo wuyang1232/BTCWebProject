@@ -1,4 +1,4 @@
-package moudles
+package modles
 //该结构体用于解析比特币节点返回数据
 type BTCResult struct {
 	Result interface{} `json:"result"`
@@ -13,7 +13,15 @@ type BTCJson struct {
 	Method  string        `json:"method"`
 	Params  []interface{} `json:"params"`
 }
-
+//获取钱包信息
+type WalletInfo struct {
+	Walletversion  int64   `json:"walletversion"`
+	balance        float64 `json:"balance"`
+	Txcount        int64   `json:"txcount"`
+	Keypoololdest  int64   `json:"keypoololdest"`
+	keypoolsize    int64   `json:"keypoolsize"`
+	unlocked_until int64   `json:"unlocked_until"`
+}
 //getblock "hash值" 返回的结构体
 type Blcok struct {
 	Hash          string   `json:"hash"`
@@ -25,7 +33,7 @@ type Blcok struct {
 	Version       int64    `json:"version"`
 	VersionHex    string   `json:"version_hex"`
 	Merkleroot    string   `json:"merkleroot"`
-	Tx            []string `json:"merkleroot"`
+	Tx            []string `json:"tx"`
 	Time          int64    `json:"time"`
 	Mediantime    int64    `json:"mediantime"`
 	Nonce         int64    `json:"nonce"`
