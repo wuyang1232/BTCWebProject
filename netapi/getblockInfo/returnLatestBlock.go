@@ -2,36 +2,36 @@ package getblockInfo
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 )
-
-func ReturnLatestBlock() {
-	response, err := http.Get("https://chain.api.btc.com/v3/block/latest")
+const LatestBlockurl = "https://chain.api.btc.com/v3/block/latest"
+func ReturnLatestBlock(url string) ([]byte, error) {
+	response, err := http.Get(LatestBlockurl)
 	if err != nil {
 		fmt.Println(err.Error())
-		return
+		return nil, err
 	}
 	if response.StatusCode != 200 {
-		fmt.Println("http状态码为", response.StatusCode)
+		return nil, errors.New("若不为200，则返回错误信息"+string(response.StatusCode))
 	}
-	bodyBytes, err := ioutil.ReadAll(response.Body)
-	if err != nil { //读取response的内容，也就是我们需要的数据
-		fmt.Println(err.Error())
-		return
-	}
-	fmt.Println(string(bodyBytes))
 
+		return ioutil.ReadAll(response.Body)
+	}
+	//fmt.Println(string(bodyBytes))
+
+	func unmarshal3(data []byte) (*LatestResult, error ) {
 	var result LatestResult
-	err = json.Unmarshal(bodyBytes, &result)  ////第一个值传我们要反序列化的数据，第二个参数为要转化的类型的指针
+	err := json.Unmarshal(data, &result)  ////第一个值传我们要反序列化的数据，第二个参数为要转化的类型的指针
 	if err != nil {
 		fmt.Println("反序列化失败：", err.Error())
-		return
+		return nil, err
 	}
 
-	fmt.Println("最新区块哈希是：",result.Data.Hash)
-
+	//fmt.Println("最新区块哈希是：",result.Data.Hash)
+		return &result,nil
 }
 
 type LatestResult struct {

@@ -15,11 +15,11 @@ func GetBodyByUrl(url string) ([]byte,error) {
 	if err != nil {
 		return nil, err
 	}
+
 	if response.StatusCode != 200 {
-		return nil ,  errors.New("如果不为200，则返回错误信息"+string(response.StatusCode))
+		return nil, errors.New("如果不为200，则返回错误信息"+string(response.StatusCode))
 	}
 	return ioutil.ReadAll(response.Body)
-
 	}
 
 
@@ -30,9 +30,12 @@ func unmarshal (data []byte) (*TxResult, error) {
 	if err != nil {
 		fmt.Println("反序列化失败：", err.Error())
 		return nil, err
+
 	}
 	return &result ,nil
+
 }
+
 
 
 type TxResult struct {
