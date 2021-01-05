@@ -19,8 +19,9 @@ func ReturnLatestBlock(url string) ([]byte, error) {
 	}
 
 		return ioutil.ReadAll(response.Body)
-	}
-	//fmt.Println(string(bodyBytes))
+}
+
+		//fmt.Println(string(bodyBytes))
 
 	func unmarshal3(data []byte) (*LatestResult, error ) {
 	var result LatestResult
@@ -30,7 +31,7 @@ func ReturnLatestBlock(url string) ([]byte, error) {
 		return nil, err
 	}
 
-	//fmt.Println("最新区块哈希是：",result.Data.Hash)
+	fmt.Println("最新区块哈希是：",result.Data.Hash)
 		return &result,nil
 }
 

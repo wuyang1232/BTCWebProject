@@ -32,6 +32,7 @@ func unmarshal (data []byte) (*TxResult, error) {
 		return nil, err
 
 	}
+	fmt.Println("返回交易哈希：",result.Data.Hash)
 	return &result ,nil
 
 }

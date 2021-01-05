@@ -30,6 +30,7 @@ func unmarshal1 (data []byte) (*AddrResult, error) {
 		fmt.Println("反序列化失败：", err.Error())
 		return nil, err
 	}
+	fmt.Println("返回交易地址：",result.Data.Address)
 	return &result ,nil
 		}
 

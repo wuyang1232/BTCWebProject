@@ -71,6 +71,7 @@ func unmarshal2 (data []byte) (*BlockResult, error) {
 		fmt.Println("反序列化失败：", err.Error())
 		return nil, err
 	}
+	fmt.Println("获取当前区块高度：",result.Data.Height)
 	return &result ,nil
 }
 	//如果程序走到这里，就意味着结构体反序列化成功，我们可以通过字段名访问对应的数据
