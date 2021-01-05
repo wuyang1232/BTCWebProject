@@ -39,7 +39,7 @@ func (l *LoginController)Post(){
 	if u != nil{
 		fmt.Println("这里也走了")
 		l.Data["Username"] = u.UserName //动态数据设置
-		l.TplName = "showrpc.html" //用户存在，跳转到主页面
+		l.TplName = "getblockheader.html" //用户存在，跳转到主页面
 	}
 }
 

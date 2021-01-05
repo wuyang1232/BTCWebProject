@@ -1,10 +1,8 @@
 package main
 
 import (
-	"BTCWebProject/btc"
 	"BTCWebProject/mysql"
 	_ "BTCWebProject/routers"
-	"fmt"
 	"github.com/astaxie/beego"
 )
 
@@ -57,11 +55,11 @@ func main() {
 	//fmt.Println("影响的行数：",rows)
 
 	//获取区块的难度
-	diffint, err := btc.SaveGetDifficulty()
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-	fmt.Println("影响的行数：", diffint)
+	//diffint, err := btc.SaveGetDifficulty()
+	//if err != nil {
+	//	fmt.Println(err.Error())
+	//}
+	//fmt.Println("影响的行数：", diffint)
 	beego.Run()
 
 }

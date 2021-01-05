@@ -451,19 +451,51 @@
 
                 <ul class="submenu">
                     <li class="">
-                        <a href="http://127.0.0.1:8080/showrpc.html">
+                        <a href="/getblockheader" methods="post">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            查询最新区块信息
+                            查询区块头信息
                         </a>
 
                         <b class="arrow"></b>
                     </li>
 
                     <li class="">
-                        <a href="http://127.0.0.1:8080/showblock.html">
+                        <a href="http://127.0.0.1:8080/getblock.html">
                             <img src="img/find.png" style=""  class="menu-icon fa fa-caret-right">
 {{/*                            <i class="menu-icon fa fa-caret-right"></i>*/}}
                             查询区块
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="/getblockchaininfo">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            查询区块链状态信息
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="/getdifficult">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            查询当前挖矿难度
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="/getbestblockhash">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            查询最新区块哈希
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="/getblockhashbyheight">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            根据高度查区块哈希
                         </a>
 
                         <b class="arrow"></b>
@@ -492,7 +524,7 @@
                     </li>
 
                     <li class="active">
-                        <a href="http://127.0.0.1:8080/select_data.html">
+                        <a href="/select_data">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询结果
                         </a>
