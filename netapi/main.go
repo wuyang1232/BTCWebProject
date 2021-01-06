@@ -8,8 +8,7 @@ import (
 func main() {
 	fmt.Println("helloworld")
 
-	getblockInfo.GetBlocK0()
+	//getblockInfo.GetBlocK0()
 	getblockInfo.ReturnLatestBlock()
-	getblockInfo.()
 
 }

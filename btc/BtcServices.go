@@ -1,14 +1,14 @@
 package btc
 
 import (
-<<<<<<< HEAD
-	"BTCWebProject/moudles"
 
-=======
+
+
+
 	"BTCWebProject/modles"
 	"BTCWebProject/mysql"
 	"fmt"
->>>>>>> master
+
 	"github.com/mitchellh/mapstructure"
 
 )

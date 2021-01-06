@@ -15,13 +15,13 @@ func main() {
 
 	//数据库连接
 	mysql.Connect()
-<<<<<<< HEAD
+
 	//blockHeader, err := btc.GetBlockHeaderByHash("000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f")
 	//if err !=nil {
 	//	fmt.Println(err.Error())
 	//}
 	//fmt.Println(blockHeader.Hash)
-=======
+
 	//result, err := btc.GetBestBlockHash()
 	//if err != nil{
 	//	fmt.Println("获取最新区块的hash值错误",err.Error())
@@ -67,7 +67,7 @@ func main() {
 	//	fmt.Println(err.Error())
 	//}
 	//fmt.Println("影响的行数：", diffint)
->>>>>>> master
+
 	beego.Run()
 
 }
