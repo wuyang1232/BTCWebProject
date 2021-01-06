@@ -39,3 +39,15 @@ func (h BlockHeader)SaveGetBlockHeader() (int64,error) {
 	}
 	return row,nil
 }
+
+//查询数据库中是否有该条记录
+func (h BlockHeader) QueryGetBlockHeaderInfo() (*BlockHeader,error){
+	row := mysql.DB.QueryRow("select hash,confirmations,height,version,version_hex,merkleroot,time,mediantime,nonce,bits,difficulty,chainwork,n_tx,nextblockhash from getblockheader where hash = ?",
+		h.Hash)
+	err := row.Scan(&h.Hash,&h.Confirmations,&h.Height,&h.Version,&h.VersionHex,&h.Merkleroot,&h.Time,&h.Mediantime,&h.Nonce,&h.Nonce,&h.Bits,&h.Difficulty,&h.Chainwork,&h.NTx,&h.Nextblockhash)
+	if err != nil {
+		fmt.Println("数据查询失败，请重试", err.Error())
+		return nil, err
+	}
+	return &h,nil
+}

@@ -30,3 +30,16 @@ func (c BlockChainInfo)SaveGetBlockChainInfo()(int64,error)  {
 	}
 	return rows, nil
 }
+
+
+//查询数据库中是否有该条记录
+func (c BlockChainInfo) QueryGetBlockChainInfo() (*BlockChainInfo,error){
+	row := mysql.DB.QueryRow("select chain,blocks,headers,bestblockhash,difficulty,mediantimey,verificationprogress,initialblockdownload,chainwork,size_on_disk,pruned,softforks,warnings from getblockchaininfo where blocks = ?",
+		c.Blocks)
+	err := row.Scan(&c.Chain,&c.Blocks,&c.Headers,&c.Bestblockhash,&c.Difficulty,&c.Mediantime,&c.Verificationprogress,&c.Initialblockdownload,&c.Chainwork,&c.Size_on_disk,&c.Pruned,&c.Softforks,&c.Warnings)
+	if err != nil {
+		fmt.Println("数据查询失败，请重试", err.Error())
+		return nil, err
+	}
+	return &c,nil
+}

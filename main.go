@@ -29,16 +29,16 @@ func main() {
 	//fmt.Println("影响的行数：",row)
 
 	//通过hash值获取区块的数据
-	//block,err := btc.GetBlockByHash("000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f")
-	//if err != nil {
-	//	fmt.Println(err.Error())
-	//}
-	////fmt.Println("block:",block)
-	//row,err := block.SaveGetBlockData()
-	//if err != nil {
-	//	fmt.Println("保存数据失败：",err.Error())
-	//}
-	//fmt.Println("影响的行数：",row)
+	block,err := btc.GetBlockByHash("000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f")
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	//fmt.Println("block:",block)
+	row,err := block.SaveGetBlockData()
+	if err != nil {
+		fmt.Println("保存数据失败：",err.Error())
+	}
+	fmt.Println("影响的行数：",row)
 
 	//rows,err := btc.SaveGetBlockHashByHeight(0)
 	//if err != nil {

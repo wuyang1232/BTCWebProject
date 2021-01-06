@@ -35,8 +35,4 @@ func Connect() {
 	DB = db
 	fmt.Println(DB)
 }
-//根据命令查询信息
-func QueryInfoByCommand(getblock string)  {
-	DB.Query("select * from getblock")
-}
 
