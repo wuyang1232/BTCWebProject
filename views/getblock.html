@@ -65,58 +65,8 @@
         /*    border: 8px solid transparent;*/
         /*    border-width: 14px 10px*/
         /*}*/
-
-        .select_div{
-            width: 300px;
-            height: 100px;
-            padding-top: 100px;
-            padding-bottom: 200px;
-            margin: auto;
-        }
-        .select_button_div{
-            padding-top: 35px;
-            padding-left: 110px;
-        }
-        .select_button{
-            width: 80px;
-            height: 50px;
-            border-radius: 10px;
-            font-size: 25px;
-            background-color: #5a83be;
-        }
-        .select_button:hover{
-            position: center;
-            border-radius: 10px;
-            background-color: #be838a;
-        }
-        #select_table{
-            width: 300px;
-            height: 50px;
-            font-size: 20px;
-            transition: 0.5s;   //过度动画
-            border-width: 2px;
-            border-radius: 10px;
-        }
-        #select_table:hover{
-            position: center;
-            width: 310px;
-            height: 55px;
-            padding: -5px -2px;
-            border-color: #80b4ff;
-        }
-        .select_table_div{
-            border-radius: 10px;
-        }
     </style>
 
-    <script>
-        function bc(){                  //搜索框获得焦点时触发的事件
-            document.getElementById("select").style.width = "400px";
-        }
-        function lk() {                 //搜索框失去焦点时触发的事件
-            document.getElementById("select").style.width = "300px"
-        }
-    </script>
 
     <!-- inline styles related to this page -->
 
@@ -439,7 +389,7 @@
 {{/*                </ul>*/}}
 {{/*            </li>*/}}
 
-            <li class="">
+            <li class="active open">
                 <a href="http://ace.jeka.by/tables.html#" class="dropdown-toggle">
                     <img src="img/table_list.png" class="menu-icon fa fa-list">
                     <span class="menu-text"> 数据展示 </span>
@@ -459,7 +409,7 @@
                         <b class="arrow"></b>
                     </li>
 
-                    <li class="">
+                    <li class="active">
                         <a href="http://127.0.0.1:8080/getblock.html">
                             <img src="img/find.png" style=""  class="menu-icon fa fa-caret-right">
 {{/*                            <i class="menu-icon fa fa-caret-right"></i>*/}}
@@ -503,7 +453,7 @@
                 </ul>
             </li>
 
-            <li class="active open">
+            <li class="">
                 <a href="http://ace.jeka.by/tables.html#" class="dropdown-toggle">
                     <img src="img/find_table.png" style="height: 20px;width: 10px" class="menu-icon fa fa-pencil-square-o">
                     <span class="menu-text"> 数据查询 </span>
@@ -651,15 +601,82 @@
                         <!-- /.row -->
 
                         <!--数据信息表格 -->
-                        <form action="/select_data" method="post" class="select_div">
-                            <div class="select_table_div">
-                                <input type="search" name="search" placeholder="请输入你要查询的方法"  id="select_table" onfocus="bc()" onblur="lk()" onclick="bc()">
-                            </div>
-                            <div class="select_button_div">
-                                <button class="select_button">查询</button>
-                            </div>
-                        </form>
+                        <table class="table_show">
 
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Hash</td>
+                                <td class="table_show_lie">{{.Block.Hash}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Confirmations</td>
+                                <td class="table_show_lie">{{.Block.Confirmations}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Strippedsize</td>
+                                <td class="table_show_lie">{{.Block.Strippedsize}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Size</td>
+                                <td class="table_show_lie">{{.Block.Size}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Weight</td>
+                                <td class="table_show_lie">{{.Block.Weight}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Height</td>
+                                <td class="table_show_lie">{{.Block.Height}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Version</td>
+                                <td class="table_show_lie">{{.Block.Version}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">VersionHex</td>
+                                <td class="table_show_lie">{{.Block.VersionHex}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Merkleroot</td>
+                                <td class="table_show_lie">{{.Block.Merkleroot}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Tx</td>
+                                <td class="table_show_lie">{{.Block.Tx}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Time</td>
+                                <td class="table_show_lie">{{.Block.Time}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Mediantime</td>
+                                <td class="table_show_lie">{{.Block.Mediantime}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Nonce</td>
+                                <td class="table_show_lie">{{.Block.Nonce}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Bits</td>
+                                <td class="table_show_lie">{{.Block.Bits}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Difficulty</td>
+                                <td class="table_show_lie">{{.Block.Difficulty}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Chainwork</td>
+                                <td class="table_show_lie">{{.Block.Chainwork}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">NTx</td>
+                                <td class="table_show_lie">{{.Block.NTx}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Nextblockhash</td>
+                                <td class="table_show_lie">{{.Block.Nextblockhash}}</td>
+                            </tr>
+
+                        </table>
 
                         <div class="hr hr-18 dotted hr-double"></div>
 

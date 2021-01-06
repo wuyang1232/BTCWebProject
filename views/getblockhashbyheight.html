@@ -65,58 +65,8 @@
         /*    border: 8px solid transparent;*/
         /*    border-width: 14px 10px*/
         /*}*/
-
-        .select_div{
-            width: 300px;
-            height: 100px;
-            padding-top: 100px;
-            padding-bottom: 200px;
-            margin: auto;
-        }
-        .select_button_div{
-            padding-top: 35px;
-            padding-left: 110px;
-        }
-        .select_button{
-            width: 80px;
-            height: 50px;
-            border-radius: 10px;
-            font-size: 25px;
-            background-color: #5a83be;
-        }
-        .select_button:hover{
-            position: center;
-            border-radius: 10px;
-            background-color: #be838a;
-        }
-        #select_table{
-            width: 300px;
-            height: 50px;
-            font-size: 20px;
-            transition: 0.5s;   //过度动画
-            border-width: 2px;
-            border-radius: 10px;
-        }
-        #select_table:hover{
-            position: center;
-            width: 310px;
-            height: 55px;
-            padding: -5px -2px;
-            border-color: #80b4ff;
-        }
-        .select_table_div{
-            border-radius: 10px;
-        }
     </style>
 
-    <script>
-        function bc(){                  //搜索框获得焦点时触发的事件
-            document.getElementById("select").style.width = "400px";
-        }
-        function lk() {                 //搜索框失去焦点时触发的事件
-            document.getElementById("select").style.width = "300px"
-        }
-    </script>
 
     <!-- inline styles related to this page -->
 
@@ -139,7 +89,6 @@
     </script><style type="text/css">.cc_cursor, body, .ogdlpmhglpejoiomcodnpjnfgcpmgale_default, body, html, input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input::-webkit-contacts-auto-fill-button, input:read-only {cursor: url("data:image/png;base64,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") 0 0 , auto !important; }.cc_pointer,[type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration, .paper-button, .ytp-progress-bar-container, input[type=submit], :link, :visited, a > *, img, button, ::-webkit-scrollbar-button, .ogdlpmhglpejoiomcodnpjnfgcpmgale_pointer, ::-webkit-file-upload-button, button, .ytp-volume-panel, #myogdlpmhglpejoiomcodnpjnfgcpmgale .icon { cursor: url("data:image/png;base64,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") 11 2, auto !important; } </style></head>
 
 <body class="no-skin">
-
 <div id="navbar" class="navbar navbar-default          ace-save-state">
     <div class="navbar-container ace-save-state" id="navbar-container">
         <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -217,23 +166,31 @@
         </script>
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+{{/*            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">*/}}
+{{/*                <button class="btn btn-success">*/}}
+{{/*                    <i class="ace-icon fa fa-signal"></i>*/}}
+{{/*                </button>*/}}
 
+{{/*                <button class="btn btn-info">*/}}
+{{/*                    <i class="ace-icon fa fa-pencil"></i>*/}}
+{{/*                </button>*/}}
 
-{{/*            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">*/}}
-{{/*                <span class="btn btn-success"></span>*/}}
+{{/*                <button class="btn btn-warning">*/}}
+{{/*                    <i class="ace-icon fa fa-users"></i>*/}}
+{{/*                </button>*/}}
 
-{{/*                <span class="btn btn-info"></span>*/}}
-
-{{/*                <span class="btn btn-warning"></span>*/}}
-
-{{/*                <span class="btn btn-danger"></span>*/}}
+{{/*                <button class="btn btn-danger">*/}}
+{{/*                    <i class="ace-icon fa fa-cogs"></i>*/}}
+{{/*                </button>*/}}
 {{/*            </div>*/}}
+
+
         </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list" style="top: 0px;">
             <li class="">
                 <a href="http://ace.jeka.by/index.html">
-{{/*                    <i class="menu-icon fa fa-tachometer"></i>*/}}
+{{/*                    <i class="menu-icon fa fa-tachometer">฿</i>*/}}
                     <img src="img/btc.png" class="menu-icon fa fa-tachometer" style="width: 27px;height: 27px">
                     <span class="menu-text"> 比特币介绍 </span>
                 </a>
@@ -439,12 +396,12 @@
 {{/*                </ul>*/}}
 {{/*            </li>*/}}
 
-            <li class="">
+            <li class="active open">
                 <a href="http://ace.jeka.by/tables.html#" class="dropdown-toggle">
                     <img src="img/table_list.png" class="menu-icon fa fa-list">
                     <span class="menu-text"> 数据展示 </span>
 
-{{/*                    <b class="arrow fa fa-angle-down"></b>*/}}
+                    <b class="arrow fa fa-angle-down"></b>
                 </a>
 
                 <b class="arrow"></b>
@@ -452,7 +409,7 @@
                 <ul class="submenu">
                     <li class="">
                         <a href="/getblockheader" methods="post">
-                            <i class="menu-icon fa fa-caret-right"></i>
+                            <img src="img/find.png" style=""  class="menu-icon fa fa-caret-right">
                             查询区块头信息
                         </a>
 
@@ -461,8 +418,7 @@
 
                     <li class="">
                         <a href="http://127.0.0.1:8080/getblock.html">
-                            <img src="img/find.png" style=""  class="menu-icon fa fa-caret-right">
-{{/*                            <i class="menu-icon fa fa-caret-right"></i>*/}}
+                            <i class="menu-icon fa fa-caret-right"></i>
                             查询区块
                         </a>
 
@@ -492,7 +448,7 @@
 
                         <b class="arrow"></b>
                     </li>
-                    <li class="">
+                    <li class="active">
                         <a href="/getblockhashbyheight">
                             <i class="menu-icon fa fa-caret-right"></i>
                             根据高度查区块哈希
@@ -500,12 +456,14 @@
 
                         <b class="arrow"></b>
                     </li>
+
                 </ul>
             </li>
 
-            <li class="active open">
+            <li class="">
                 <a href="http://ace.jeka.by/tables.html#" class="dropdown-toggle">
                     <img src="img/find_table.png" style="height: 20px;width: 10px" class="menu-icon fa fa-pencil-square-o">
+{{/*                    <i class="menu-icon fa fa-pencil-square-o"></i>*/}}
                     <span class="menu-text"> 数据查询 </span>
 
                     <b class="arrow fa fa-angle-down"></b>
@@ -651,15 +609,15 @@
                         <!-- /.row -->
 
                         <!--数据信息表格 -->
-                        <form action="/select_data" method="post" class="select_div">
-                            <div class="select_table_div">
-                                <input type="search" name="search" placeholder="请输入你要查询的方法"  id="select_table" onfocus="bc()" onblur="lk()" onclick="bc()">
-                            </div>
-                            <div class="select_button_div">
-                                <button class="select_button">查询</button>
-                            </div>
-                        </form>
+                        <table class="table_show">
+{{/*                            {{range .BlockHeader}}*/}}
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Hash</td>
+                                <td class="table_show_lie">{{.Hash}}</td>
+                            </tr>
 
+{{/*                            {{end}}*/}}
+                        </table>
 
                         <div class="hr hr-18 dotted hr-double"></div>
 

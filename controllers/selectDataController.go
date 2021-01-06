@@ -9,3 +9,7 @@ type SelectDataController struct {
 func (s *SelectDataController) Get(){
 	s.TplName = "select_data.html"
 }
+func (s *SelectDataController) Post(){
+
+	s.TplName = "select_data.html"
+}

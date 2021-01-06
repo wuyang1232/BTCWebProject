@@ -407,23 +407,57 @@
                 <b class="arrow"></b>
 
                 <ul class="submenu">
-                    <li class="active">
-                        <a href="http://127.0.0.1:8080/showrpc.html">
+                    <li class="">
+                        <a href="/getblockheader" methods="post">
                             <img src="img/find.png" style=""  class="menu-icon fa fa-caret-right">
-                            查询最新区块信息
+                            查询区块头信息
                         </a>
 
                         <b class="arrow"></b>
                     </li>
 
                     <li class="">
-                        <a href="http://127.0.0.1:8080/showblock.html">
+                        <a href="http://127.0.0.1:8080/getblock.html">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询区块
                         </a>
 
                         <b class="arrow"></b>
                     </li>
+                    <li class="">
+                        <a href="/getblockchaininfo">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            查询区块链状态信息
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="/getdifficult">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            查询当前挖矿难度
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="active">
+                        <a href="/getbestblockhash">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            查询最新区块哈希
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="/getblockhashbyheight">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            根据高度查区块哈希
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+
                 </ul>
             </li>
 
@@ -449,7 +483,7 @@
                     </li>
 
                     <li class="">
-                        <a href="http://127.0.0.1:8080/select_data.html">
+                        <a href="/select_data">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询结果
                         </a>
@@ -577,14 +611,13 @@
 
                         <!--数据信息表格 -->
                         <table class="table_show">
+{{/*                            {{range .BlockHeader}}*/}}
                             <tr class="table_show_hang">
-                                <td class="table_show_lie">block</td>
-                                <td class="table_show_lie">0</td>
+                                <td class="table_show_lie">BestBlockHash</td>
+                                <td class="table_show_lie">{{.BestBlockHash}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">hash</td>
-                                <td class="table_show_lie">01oidhfiahfhawfhaf422asdnfaehwaehfuisbfaggfuiwge</td>
-                            </tr>
+
+{{/*                            {{end}}*/}}
                         </table>
 
                         <div class="hr hr-18 dotted hr-double"></div>

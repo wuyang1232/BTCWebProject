@@ -41,12 +41,7 @@ func GetDifficult()(interface{}, error)  {
 	return result.Result,nil
 }
 
-func SaveGetDifficulty() (int64,error) {
-	intDiff,err := GetDifficult()
-	if err != nil {
-		fmt.Println("数据保存失败，请稍后再试：",err.Error())
-		return -1,err
-	}
+func SaveGetDifficulty(intDiff interface{}) (int64,error) {
 	result,err := mysql.DB.Exec("insert into getdifficulty(difficulty)values (?)", intDiff)
 	fmt.Println(result)
 	if err != nil{
@@ -69,12 +64,7 @@ func GetBestBlockHash() (interface{}, error) {
 	return result.Result, err
 }
 
-func SaveGetBestBlockHash() (int64,error) {
-	hash,err := GetBestBlockHash()
-	if err != nil {
-		fmt.Println("数据保存失败，请稍后再试：",err.Error())
-		return -1,err
-	}
+func SaveGetBestBlockHash(hash interface{}) (int64,error) {
 	result,err := mysql.DB.Exec("insert into getbestblockhash(hash)values (?)", hash)
 	if err != nil{
 		fmt.Println("保存数据失败,请重试：",err.Error())
@@ -125,11 +115,7 @@ func GetBlockHashByHeight(height int64) (interface{}, error) {
 	return result.Result, err
 }
 //保存通过高度拿到的区块hash值
-func SaveGetBlockHashByHeight(height int64) (int64,error) {
-	hash,err := GetBlockHashByHeight(height)
-	if err != nil {
-		fmt.Println("数据保存失败，请稍后再试：",err.Error())
-	}
+func SaveGetBlockHashByHeight(hash interface{}) (int64,error) {
 	result,err := mysql.DB.Exec("insert into getblockhashbyheight(hash)values (?)", hash)
 	if err != nil{
 		fmt.Println("保存数据失败,请重试：",err.Error())
