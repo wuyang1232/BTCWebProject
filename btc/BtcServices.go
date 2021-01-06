@@ -128,3 +128,14 @@ func SaveGetBlockHashByHeight(hash interface{}) (int64,error) {
 	}
 	return rows,nil
 }
+//查询数据库中是否有该条记录
+func  QueryGetBlockHashByHeight(hash string) (string,error){
+	row := mysql.DB.QueryRow("select hash from getblockhashbyheight where hash=?",
+		hash)
+	err := row.Scan(&hash)
+	if err != nil {
+		fmt.Println("数据查询失败，请重试", err.Error())
+		return "", err
+	}
+	return hash,nil
+}

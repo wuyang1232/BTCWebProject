@@ -1,4 +1,5 @@
 package modles
+
 //该结构体用于解析比特币节点返回数据
 type BTCResult struct {
 	Result interface{} `json:"result"`
@@ -13,15 +14,25 @@ type BTCJson struct {
 	Method  string        `json:"method"`
 	Params  []interface{} `json:"params"`
 }
+
 //获取钱包信息
 type WalletInfo struct {
+	Walletname     string  `json:"walletname"`
 	Walletversion  int64   `json:"walletversion"`
 	balance        float64 `json:"balance"`
+	unconfirmed_balance  float64 `json:"unconfirmed_balance"`
+	immature_balance float64 `json:"immature_balance"`
 	Txcount        int64   `json:"txcount"`
 	Keypoololdest  int64   `json:"keypoololdest"`
 	keypoolsize    int64   `json:"keypoolsize"`
-	unlocked_until int64   `json:"unlocked_until"`
+	hdseedid   string `json:"hdseedid"`
+	keypoolsize_hd_internal   int `json:"keypoolsize_hd_internal"`
+	paytxfee  float64 `json:"paytxfee"`
+	private_keys_enabled  bool `json:"private_keys_enabled"`
+	avoid_reuse bool `json:"avoid_reuse"`
+	scanning  bool `json:"scanning"`
 }
+
 //getblock "hash值" 返回的结构体
 type Blcok struct {
 	Hash          string   `json:"hash"`
@@ -101,17 +112,17 @@ type softfork struct {
 //getblcokheader 命令返回的结构体
 type BlockHeader struct {
 	Hash          string `json:"hash"`
-	Confirmations int64 `json:"confirmations"`
-	Height        int64 `json:"height"`
-	Version       int64 `json:"version"`
+	Confirmations int64  `json:"confirmations"`
+	Height        int64  `json:"height"`
+	Version       int64  `json:"version"`
 	VersionHex    string `json:"version_hex"`
 	Merkleroot    string `json:"merkleroot"`
-	Time          int64 `json:"time"`
-	Mediantime    int64 `json:"mediantime"`
-	Nonce         int64 `json:"nonce"`
+	Time          int64  `json:"time"`
+	Mediantime    int64  `json:"mediantime"`
+	Nonce         int64  `json:"nonce"`
 	Bits          string `json:"bits"`
-	Difficulty    int64 `json:"difficulty"`
+	Difficulty    int64  `json:"difficulty"`
 	Chainwork     string `json:"chainwork"`
-	NTx           int64 `json:"n_tx"`
+	NTx           int64  `json:"n_tx"`
 	Nextblockhash string `json:"nextblockhash"`
 }

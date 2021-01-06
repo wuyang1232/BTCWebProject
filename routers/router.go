@@ -9,7 +9,7 @@ func init() {
 	beego.Router("/", &controllers.LoginController{})
 	beego.Router("/register", &controllers.RegisterController{})
     beego.Router("/login", &controllers.LoginController{})
-    beego.Router("/login.html", &controllers.LoginController{})
+    //beego.Router("/login.html", &controllers.LoginController{})
 	//获取区块信息
     beego.Router("/getblock", &controllers.GetBlockController{})
     //beego.Router("/getblock.html", &controllers.ShowBlockController{})
