@@ -10,6 +10,6 @@ func main() {
 
 	getblockInfo.GetBlocK0()
 	getblockInfo.ReturnLatestBlock()
-	getblockInfo.GetTx()
+	getblockInfo.()
 
 }

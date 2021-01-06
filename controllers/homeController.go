@@ -9,3 +9,6 @@ type HomeController struct {
 func (h *HomeController)Post(){
 	h.TplName = "home.html"
 }
+func (h *HomeController)Get(){
+	h.TplName = "home.html"
+}
