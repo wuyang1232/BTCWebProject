@@ -36,7 +36,7 @@ func (g *GetAddressInfoController) Get(){
 	}
 	if address == nil{
 		//使用rpc方法获取地址信息
-		addressInfo, err := btc.GetAddressInfo("1En3PmGcnrKogu3EbTeboN7oePeJ3tQYah")
+		addressInfo, err := btc.GetAddressInfo("bc1q4xhvvtuqyl76lhmzyfqpx0xnle6sysvmlwu955")
 		if err != nil{
 			fmt.Println("使用rpc方法获取地址信息失败")
 			fmt.Println(err.Error())
