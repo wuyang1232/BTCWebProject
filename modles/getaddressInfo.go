@@ -29,11 +29,11 @@ import (
 //将rpc中的数据保存到数据库当中
 func (a AddressInfo) SaveGetAddressInfoData() (int64, error) {
 	//插入数据
-	result, err := mysql.DB.Exec("insert into getaddressInfo(address,script_pubkey,is_mine,solvable,desc,is_watch_only,is_script,is_witness,witness_version,witness_program,pubkey,is_change,time_stamp,hdkey_path,hd_seedid,hd_master_finger_print,lables)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-		a.Address, a.ScriptPubkey, a.Ismine, a.solvable, a.Desc, a.Iswatchonly, a.Isscript, a.Iswitness, a.Witness_version, a.Witness_program, a.Pubkey,
-		a.Ischange, a.Timestamp, a.Hdkeypath, a.Hdseedid, a.Hdmasterfingerprint, a.Lables)
+	result,err := mysql.DB.Exec("insert into getaddressinfo(address,scriptPubKey,ismine,solvable,iswatchonly,isscript,iswitness,pubkey,iscompressed,ischange,timestamp,hdkeypath,hdseedid,hdmasterfingerprint)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+		a.Address,a.ScriptPubkey,a.Ismine,a.Solvable,a.Iswatchonly,a.Isscript,a.Iswitness,a.Pubkey,a.Iscompressed,a.Ischange,a.Timestamp,a.Hdkeypath,a.Hdseedid,a.Hdmasterfingerprint)
+
 	if err != nil {
-		fmt.Println("保存数据失败，请重试", err.Error())
+		fmt.Println("插入数据失败，请重试", err.Error())
 		return -1, err
 	}
 	rows, err := result.RowsAffected() //影响的行数
@@ -42,5 +42,18 @@ func (a AddressInfo) SaveGetAddressInfoData() (int64, error) {
 		return -1, err
 	}
 	return rows, nil
+}
 
+
+//查询数据库中是否有该条记录
+func (a AddressInfo) QueryGetAddressInfoData() (*AddressInfo,error){
+	row := mysql.DB.QueryRow("select address,scriptPubKey,ismine,solvable,iswatchonly,isscript,iswitness,pubkey,iscompressed,ischange,timestamp,hdkeypath,hdseedid,hdmasterfingerprint from getaddressinfo where address = ?",
+		a.Address)
+	err := row.Scan(&a.Address,&a.ScriptPubkey,&a.Ismine,&a.Solvable,&a.Iswatchonly,&a.Isscript,&a.Iswitness,&a.Pubkey,&a.Iscompressed,
+		a.Ischange,&a.Timestamp,&a.Hdkeypath,&a.Hdseedid,&a.Hdmasterfingerprint)
+	if err != nil {
+		fmt.Println("数据查询失败，请重试", err.Error())
+		return nil, err
+	}
+	return &a,nil
 }

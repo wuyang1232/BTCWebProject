@@ -11,6 +11,7 @@ type GetBestBlockHashController struct {
 }
 
 func (g *GetBestBlockHashController) Get(){
+
 	//通过rpc方法获取最新区块的hash
 	bestBlockHash, err := btc.GetBestBlockHash()
 	if err != nil{

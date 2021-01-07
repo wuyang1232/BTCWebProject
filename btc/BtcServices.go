@@ -12,7 +12,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 
 )
-
+func GetAddressInfo(address string) (*modles.AddressInfo,error) {
+	result, err:= GetMsgByCommand("getaddressinfo", address)
+	if err != nil {
+		return nil, err
+	}
+	var addressinfo modles.AddressInfo
+	err = mapstructure.Decode(result.Result, &addressinfo)
+	if err != nil {
+		return nil,err
+	}
+	return &addressinfo, nil
+}
 //比特币节点命令 getblockchaininfo 的封装函数
 func GetBlockChainInfo()(*modles.BlockChainInfo,error)  {
 	result, err := GetMsgByCommand("getblockchaininfo")
@@ -27,6 +38,19 @@ func GetBlockChainInfo()(*modles.BlockChainInfo,error)  {
 	return &blockchain,nil
 }
 
+//比特币节点命令 getblockchaininfo 的封装函数
+func GetWalletInfo()(*modles.WalletInfo,error)  {
+	result, err := GetMsgByCommand("getwalletinfo")
+	if err != nil {
+		return nil,err
+	}
+	var walletinfo modles.WalletInfo
+	err = mapstructure.Decode(result.Result, &walletinfo)
+	if err != nil{
+		return nil,err
+	}
+	return &walletinfo,nil
+}
 //比特币节点命令 getblockcount 的封装函数
 func GetBlockCount() (interface{}, error) {
 	result, err := GetMsgByCommand("getblockcount")
@@ -133,4 +157,15 @@ func SaveGetBlockHashByHeight(hash interface{}) (int64,error) {
 		return -1,err
 	}
 	return rows,nil
+}
+//查询数据库中是否有该条记录
+func  QueryGetBlockHashByHeight(hash string) (string,error){
+	row := mysql.DB.QueryRow("select hash from getblockhashbyheight where hash=?",
+		hash)
+	err := row.Scan(&hash)
+	if err != nil {
+		fmt.Println("数据查询失败，请重试", err.Error())
+		return "", err
+	}
+	return hash,nil
 }

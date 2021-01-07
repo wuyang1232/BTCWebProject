@@ -9,7 +9,7 @@ func init() {
 	beego.Router("/", &controllers.LoginController{})
 	beego.Router("/register", &controllers.RegisterController{})
     beego.Router("/login", &controllers.LoginController{})
-    beego.Router("/login.html", &controllers.LoginController{})
+    //beego.Router("/login.html", &controllers.LoginController{})
 	//获取区块信息
     beego.Router("/getblock", &controllers.GetBlockController{})
     //beego.Router("/getblock.html", &controllers.ShowBlockController{})
@@ -24,6 +24,10 @@ func init() {
 	beego.Router("/getbestblockhash",&controllers.GetBestBlockHashController{})
 	//根据高度获取区块的hash值
 	beego.Router("/getblockhashbyheight", &controllers.GetBlockHashByHeight{})
+	//获取地址信息
+	beego.Router("/getaddressinfo",&controllers.GetAddressInfoController{})
+	//获取钱包信息
+	beego.Router("/getwalletinfo", &controllers.GetWalletInfoController{})
 
     beego.Router("/search", &controllers.SerachController{})
 	//方法搜索

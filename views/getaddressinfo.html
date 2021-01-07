@@ -441,7 +441,7 @@
 
                         <b class="arrow"></b>
                     </li>
-                    <li class="active">
+                    <li class="">
                         <a href="/getdifficult">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询当前挖矿难度
@@ -465,7 +465,7 @@
 
                         <b class="arrow"></b>
                     </li>
-                    <li class="">
+                    <li class="active">
                         <a href="/getaddressinfo">
                             <i class="menu-icon fa fa-caret-right"></i>
                             获取地址信息
@@ -481,7 +481,6 @@
 
                         <b class="arrow"></b>
                     </li>
-
                 </ul>
             </li>
 
@@ -498,7 +497,7 @@
 
                 <ul class="submenu">
                     <li class="active">
-                        <a href="http://127.0.0.1:8080/select.html">
+                        <a href="/select_data">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询
                         </a>
@@ -507,7 +506,7 @@
                     </li>
 
                     <li class="">
-                        <a href="/select_data">
+                        <a href="http://127.0.0.1:8080/select_data.html">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询结果
                         </a>
@@ -536,7 +535,7 @@
                     <li>
                         <a href="http://ace.jeka.by/tables.html#">数据展示</a>
                     </li>
-                    <li class="active">查询当前挖矿难度</li>
+                    <li class="active">查询区块头信息</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -637,9 +636,59 @@
                         <table class="table_show">
 {{/*                            {{range .BlockHeader}}*/}}
                             <tr class="table_show_hang">
-                                <td class="table_show_lie">Difficult</td>
-                                <td class="table_show_lie">{{.Difficult}}</td>
+                                <td class="table_show_lie">Address</td>
+                                <td class="table_show_lie">{{.AddressInfo.Address}}</td>
                             </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">ScriptPubkey</td>
+                                <td class="table_show_lie">{{.AddressInfo.ScriptPubkey}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Ismine</td>
+                                <td class="table_show_lie">{{.AddressInfo.Ismine}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Solvable</td>
+                                <td class="table_show_lie">{{.AddressInfo.Solvable}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Iswatchonly</td>
+                                <td class="table_show_lie">{{.AddressInfo.Iswatchonly}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Isscript</td>
+                                <td class="table_show_lie">{{.AddressInfo.Isscript}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Iswitness</td>
+                                <td class="table_show_lie">{{.AddressInfo.Iswitness}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Pubkey</td>
+                                <td class="table_show_lie">{{.AddressInfo.Pubkey}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Ischange</td>
+                                <td class="table_show_lie">{{.AddressInfo.Ischange}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Timestamp</td>
+                                <td class="table_show_lie">{{.AddressInfo.Timestamp}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Hdkeypath</td>
+                                <td class="table_show_lie">{{.AddressInfo.Hdkeypath}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Hdseedid</td>
+                                <td class="table_show_lie">{{.AddressInfo.Hdseedid}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Hdmasterfingerprint</td>
+                                <td class="table_show_lie">{{.AddressInfo.Hdmasterfingerprint}}</td>
+                            </tr>
+
+
 
 {{/*                            {{end}}*/}}
                         </table>

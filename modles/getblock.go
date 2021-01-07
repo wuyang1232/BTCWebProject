@@ -30,9 +30,9 @@ import (
 //将从bitcoin中拿到的数据保存到数据库中
 func (b Blcok) SaveGetBlockData() (int64, error) {
 	//插入数据
-	result, err := mysql.DB.Exec("insert into getblock(hash,confirmations,stripped_size,size,weight,height,version,version_hex,merkle_root,tx,time,mediantime,nonce,bits,difficulty,chainwork,ntx,nextblockhash)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-		b.Hash, b.Confirmations, b.Strippedsize, b.Size, b.Weight, b.Height, b.Version, b.VersionHex, b.Merkleroot, b.Tx,
-		b.Time, b.Mediantime, b.Nonce, b.Bits, b.Difficulty, b.Chainwork, b.NTx, b.Nextblockhash)
+	result,err := mysql.DB.Exec("insert into getblock(hash,confirmations,stripped_size,size,weight,height,version,version_hex,merkle_root,time,mediantime,nonce,bits,difficulty,chainwork,ntx,nextblockhash)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+	b.Hash,b.Confirmations,b.Strippedsize,b.Size,b.Weight,b.Height,b.Version,b.VersionHex,b.Merkleroot,//b.Tx,
+	b.Time,b.Mediantime,b.Nonce,b.Bits,b.Difficulty,b.Chainwork,b.NTx,b.Nextblockhash)
 	if err != nil {
 		fmt.Println("插入数据失败，请重试：", err.Error())
 		return -1, nil
@@ -43,4 +43,19 @@ func (b Blcok) SaveGetBlockData() (int64, error) {
 		return -1, nil
 	}
 	return rows, nil
+}
+
+
+
+//查询数据库中是否有该条记录
+func (b Blcok) QueryGetBlockData() (*Blcok,error){
+	row := mysql.DB.QueryRow("select hash,confirmations,stripped_size,size,weight,height,version,version_hex,merkle_root,time,mediantime,nonce,bits,difficulty,chainwork,ntx,nextblockhash from getblock where hash = ?",
+		b.Hash)
+	err := row.Scan(&b.Hash,&b.Confirmations,&b.Strippedsize,&b.Size,&b.Weight,&b.Height,&b.Version,&b.VersionHex,&b.Merkleroot,//&b.Tx,
+		&b.Time,&b.Mediantime,&b.Nonce,&b.Bits,&b.Difficulty,&b.Chainwork,&b.NTx,&b.Nextblockhash)
+	if err != nil {
+		fmt.Println("数据查询失败，请重试", err.Error())
+		return nil, err
+	}
+	return &b,nil
 }
