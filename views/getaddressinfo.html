@@ -636,61 +636,59 @@
                         <table class="table_show">
 {{/*                            {{range .BlockHeader}}*/}}
                             <tr class="table_show_hang">
-                                <td class="table_show_lie">Hash</td>
-                                <td class="table_show_lie">{{.BlockHeader.Hash}}</td>
+                                <td class="table_show_lie">Address</td>
+                                <td class="table_show_lie">{{.AddressInfo.Address}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Confirmations</td>
-                                <td class="table_show_lie">{{.BlockHeader.Confirmations}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">ScriptPubkey</td>
+                                <td class="table_show_lie">{{.AddressInfo.ScriptPubkey}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Height</td>
-                                <td class="table_show_lie">{{.BlockHeader.Height}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Ismine</td>
+                                <td class="table_show_lie">{{.AddressInfo.Ismine}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Version</td>
-                                <td class="table_show_lie">{{.BlockHeader.Version}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Solvable</td>
+                                <td class="table_show_lie">{{.AddressInfo.Solvable}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">VersionHex</td>
-                                <td class="table_show_lie">{{.BlockHeader.VersionHex}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Iswatchonly</td>
+                                <td class="table_show_lie">{{.AddressInfo.Iswatchonly}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Merkleroot</td>
-                                <td class="table_show_lie">{{.BlockHeader.Merkleroot}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Isscript</td>
+                                <td class="table_show_lie">{{.AddressInfo.Isscript}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Time</td>
-                                <td class="table_show_lie">{{.BlockHeader.Time}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Iswitness</td>
+                                <td class="table_show_lie">{{.AddressInfo.Iswitness}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Mediantime</td>
-                                <td class="table_show_lie">{{.BlockHeader.Mediantime}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Pubkey</td>
+                                <td class="table_show_lie">{{.AddressInfo.Pubkey}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Nonce</td>
-                                <td class="table_show_lie">{{.BlockHeader.Nonce}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Ischange</td>
+                                <td class="table_show_lie">{{.AddressInfo.Ischange}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Bits</td>
-                                <td class="table_show_lie">{{.BlockHeader.Bits}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Timestamp</td>
+                                <td class="table_show_lie">{{.AddressInfo.Timestamp}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Difficulty</td>
-                                <td class="table_show_lie">{{.BlockHeader.Difficulty}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Hdkeypath</td>
+                                <td class="table_show_lie">{{.AddressInfo.Hdkeypath}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Chainwork</td>
-                                <td class="table_show_lie">{{.BlockHeader.Chainwork}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Hdseedid</td>
+                                <td class="table_show_lie">{{.AddressInfo.Hdseedid}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">NTx</td>
-                                <td class="table_show_lie">{{.BlockHeader.NTx}}</td>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Hdmasterfingerprint</td>
+                                <td class="table_show_lie">{{.AddressInfo.Hdmasterfingerprint}}</td>
                             </tr>
-                            <tr>
-                                <td class="table_show_lie">Nextblockhash</td>
-                                <td class="table_show_lie">{{.BlockHeader.Nextblockhash}}</td>
-                            </tr>
+
+
 
 {{/*                            {{end}}*/}}
                         </table>

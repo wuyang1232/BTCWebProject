@@ -17,10 +17,12 @@ func (g *GetAddressInfoController) Get(){
 		Address:             "",
 		ScriptPubkey:        "",
 		Ismine:              false,
+		Solvable:            false,
 		Iswatchonly:         false,
 		Isscript:            false,
 		Iswitness:           false,
 		Pubkey:              "",
+		Iscompressed:        false,
 		Ischange:            false,
 		Timestamp:           0,
 		Hdkeypath:           "",
@@ -46,10 +48,11 @@ func (g *GetAddressInfoController) Get(){
 			fmt.Println(err.Error())
 		}
 		fmt.Println("影响到的行数",row)
-
+		fmt.Println(addressInfo)
 		g.Data["AddressInfo"] = addressInfo
 		g.TplName = "getaddressinfo.html"
 	}else{
+		fmt.Println(address)
 		g.Data["AddressInfo"] = address
 		g.TplName = "getaddressinfo.html"
 	}

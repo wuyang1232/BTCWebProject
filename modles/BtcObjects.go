@@ -60,7 +60,7 @@ type AddressInfo struct {
 	Address             string `json:"address"`
 	ScriptPubkey        string `json:"scriptPubKey"`
 	Ismine              bool   `json:"ismine"`
-	solvable            bool   `json:"solvable"`
+	Solvable            bool   `json:"solvable"`
 	//Desc                string `json:"desc"`
 	Iswatchonly         bool   `json:"iswatchonly"`
 	Isscript            bool   `json:"isscript"`
