@@ -46,7 +46,7 @@ func (a AddressInfo)SaveGetAddressInfoData()(int64,error)  {
 
 //查询数据库中是否有该条记录
 func (a AddressInfo) QueryGetAddressInfoData() (*AddressInfo,error){
-	row := mysql.DB.QueryRow("select address,scriptPubKey,ismine,solvable,desc,iswatchonly,isscript,iswitness,pubkey,iscompressed,ischange,timestamp,hdkeypath,hdseedid,hdmasterfingerprint from getaddressinfo where address = ?",
+	row := mysql.DB.QueryRow("select address,scriptPubKey,ismine,solvable,iswatchonly,isscript,iswitness,pubkey,iscompressed,ischange,timestamp,hdkeypath,hdseedid,hdmasterfingerprint from getaddressinfo where address = ?",
 		a.Address)
 	err := row.Scan(&a.Address,&a.ScriptPubkey,&a.Ismine,&a.solvable,&a.Iswatchonly,&a.Isscript,&a.Iswitness,&a.Pubkey,&a.Iscompressed,
 		a.Ischange,&a.Timestamp,&a.Hdkeypath,&a.Hdseedid,&a.Hdmasterfingerprint)
