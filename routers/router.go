@@ -24,6 +24,10 @@ func init() {
 	beego.Router("/getbestblockhash",&controllers.GetBestBlockHashController{})
 	//根据高度获取区块的hash值
 	beego.Router("/getblockhashbyheight", &controllers.GetBlockHashByHeight{})
+	//获取地址信息
+	beego.Router("/getaddressinfo",&controllers.GetAddressInfoController{})
+	//获取钱包信息
+	beego.Router("/getwalletinfo", &controllers.GetWalletInfoController{})
 
     beego.Router("/home", &controllers.HomeController{})
 	//方法搜索

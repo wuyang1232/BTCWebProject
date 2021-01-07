@@ -23,7 +23,6 @@ func (g *GetBlockController) Get(){
 		Version:       0,
 		VersionHex:    "",
 		Merkleroot:    "",
-		Tx:            nil,
 		Time:          0,
 		Mediantime:    0,
 		Nonce:         0,

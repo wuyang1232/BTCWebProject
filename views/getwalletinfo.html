@@ -441,7 +441,7 @@
 
                         <b class="arrow"></b>
                     </li>
-                    <li class="active">
+                    <li class="">
                         <a href="/getdifficult">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询当前挖矿难度
@@ -473,7 +473,7 @@
 
                         <b class="arrow"></b>
                     </li>
-                    <li class="">
+                    <li class="active">
                         <a href="/getwalletinfo">
                             <i class="menu-icon fa fa-caret-right"></i>
                             获取钱包信息
@@ -481,7 +481,6 @@
 
                         <b class="arrow"></b>
                     </li>
-
                 </ul>
             </li>
 
@@ -498,7 +497,7 @@
 
                 <ul class="submenu">
                     <li class="active">
-                        <a href="http://127.0.0.1:8080/select.html">
+                        <a href="/select_data">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询
                         </a>
@@ -507,7 +506,7 @@
                     </li>
 
                     <li class="">
-                        <a href="/select_data">
+                        <a href="http://127.0.0.1:8080/select_data.html">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询结果
                         </a>
@@ -536,7 +535,7 @@
                     <li>
                         <a href="http://ace.jeka.by/tables.html#">数据展示</a>
                     </li>
-                    <li class="active">查询当前挖矿难度</li>
+                    <li class="active">查询区块头信息</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -637,8 +636,60 @@
                         <table class="table_show">
 {{/*                            {{range .BlockHeader}}*/}}
                             <tr class="table_show_hang">
-                                <td class="table_show_lie">Difficult</td>
-                                <td class="table_show_lie">{{.Difficult}}</td>
+                                <td class="table_show_lie">Walletname</td>
+                                <td class="table_show_lie">{{.WalletInfo.Walletname}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Walletversion</td>
+                                <td class="table_show_lie">{{.WalletInfo.Walletversion}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Balance</td>
+                                <td class="table_show_lie">{{.WalletInfo.Balance}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Unconfirmed_balance</td>
+                                <td class="table_show_lie">{{.WalletInfo.Unconfirmed_balance}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Immature_balance</td>
+                                <td class="table_show_lie">{{.WalletInfo.Immature_balance}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Txcount</td>
+                                <td class="table_show_lie">{{.WalletInfo.Txcount}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Keypoololdest</td>
+                                <td class="table_show_lie">{{.WalletInfo.Keypoololdest}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Keypoolsize</td>
+                                <td class="table_show_lie">{{.WalletInfo.Keypoolsize}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Hdseedid</td>
+                                <td class="table_show_lie">{{.WalletInfo.Hdseedid}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Keypoolsize_hd_internal</td>
+                                <td class="table_show_lie">{{.WalletInfo.Keypoolsize_hd_internal}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Paytxfee</td>
+                                <td class="table_show_lie">{{.WalletInfo.Paytxfee}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Private_keys_enabled</td>
+                                <td class="table_show_lie">{{.WalletInfo.Private_keys_enabled}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Avoid_reuse</td>
+                                <td class="table_show_lie">{{.WalletInfo.Avoid_reuse}}</td>
+                            </tr>
+                            <tr class="table_show_hang">
+                                <td class="table_show_lie">Scanning</td>
+                                <td class="table_show_lie">{{.WalletInfo.Scanning}}</td>
                             </tr>
 
 {{/*                            {{end}}*/}}

@@ -441,7 +441,7 @@
 
                         <b class="arrow"></b>
                     </li>
-                    <li class="active">
+                    <li class="">
                         <a href="/getdifficult">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询当前挖矿难度
@@ -465,7 +465,7 @@
 
                         <b class="arrow"></b>
                     </li>
-                    <li class="">
+                    <li class="active">
                         <a href="/getaddressinfo">
                             <i class="menu-icon fa fa-caret-right"></i>
                             获取地址信息
@@ -481,7 +481,6 @@
 
                         <b class="arrow"></b>
                     </li>
-
                 </ul>
             </li>
 
@@ -498,7 +497,7 @@
 
                 <ul class="submenu">
                     <li class="active">
-                        <a href="http://127.0.0.1:8080/select.html">
+                        <a href="/select_data">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询
                         </a>
@@ -507,7 +506,7 @@
                     </li>
 
                     <li class="">
-                        <a href="/select_data">
+                        <a href="http://127.0.0.1:8080/select_data.html">
                             <i class="menu-icon fa fa-caret-right"></i>
                             查询结果
                         </a>
@@ -536,7 +535,7 @@
                     <li>
                         <a href="http://ace.jeka.by/tables.html#">数据展示</a>
                     </li>
-                    <li class="active">查询当前挖矿难度</li>
+                    <li class="active">查询区块头信息</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -637,8 +636,60 @@
                         <table class="table_show">
 {{/*                            {{range .BlockHeader}}*/}}
                             <tr class="table_show_hang">
-                                <td class="table_show_lie">Difficult</td>
-                                <td class="table_show_lie">{{.Difficult}}</td>
+                                <td class="table_show_lie">Hash</td>
+                                <td class="table_show_lie">{{.BlockHeader.Hash}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Confirmations</td>
+                                <td class="table_show_lie">{{.BlockHeader.Confirmations}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Height</td>
+                                <td class="table_show_lie">{{.BlockHeader.Height}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Version</td>
+                                <td class="table_show_lie">{{.BlockHeader.Version}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">VersionHex</td>
+                                <td class="table_show_lie">{{.BlockHeader.VersionHex}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Merkleroot</td>
+                                <td class="table_show_lie">{{.BlockHeader.Merkleroot}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Time</td>
+                                <td class="table_show_lie">{{.BlockHeader.Time}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Mediantime</td>
+                                <td class="table_show_lie">{{.BlockHeader.Mediantime}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Nonce</td>
+                                <td class="table_show_lie">{{.BlockHeader.Nonce}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Bits</td>
+                                <td class="table_show_lie">{{.BlockHeader.Bits}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Difficulty</td>
+                                <td class="table_show_lie">{{.BlockHeader.Difficulty}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Chainwork</td>
+                                <td class="table_show_lie">{{.BlockHeader.Chainwork}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">NTx</td>
+                                <td class="table_show_lie">{{.BlockHeader.NTx}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table_show_lie">Nextblockhash</td>
+                                <td class="table_show_lie">{{.BlockHeader.Nextblockhash}}</td>
                             </tr>
 
 {{/*                            {{end}}*/}}

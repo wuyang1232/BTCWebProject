@@ -465,6 +465,22 @@
 
                         <b class="arrow"></b>
                     </li>
+                    <li class="">
+                        <a href="/getaddressinfo">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            获取地址信息
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="/getwalletinfo">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            获取钱包信息
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
                 </ul>
             </li>
 
@@ -663,10 +679,10 @@
                                 <td class="table_show_lie">Pruned</td>
                                 <td class="table_show_lie">{{.BlockChainInfo.Pruned}}</td>
                             </tr>
-                            <tr class="table_show_hang">
-                                <td class="table_show_lie">Softforks</td>
-                                <td class="table_show_lie">{{.BlockChainInfo.Softforks}}</td>
-                            </tr>
+{{/*                            <tr class="table_show_hang">*/}}
+{{/*                                <td class="table_show_lie">Softforks</td>*/}}
+{{/*                                <td class="table_show_lie">{{.BlockChainInfo.Softforks}}</td>*/}}
+{{/*                            </tr>*/}}
                             <tr class="table_show_hang">
                                 <td class="table_show_lie">Warnings</td>
                                 <td class="table_show_lie">{{.BlockChainInfo.Warnings}}</td>

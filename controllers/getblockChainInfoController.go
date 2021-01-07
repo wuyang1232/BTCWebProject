@@ -27,7 +27,6 @@ func (g *GetBlockChainInfoController) Get(){
 		Pruned:               false,
 		Warnings:             "",
 	}
-	block.Softforks.Bip34.Height = 0
 	block, err := block.QueryGetBlockChainInfo()
 	if err != nil{
 		fmt.Println("查询数据库中是否存在区块链连接信息失败")
