@@ -16,6 +16,7 @@ func GetBodyByUrl(url string) ([]byte,error) {
 		return nil, err
 	}
 	if response.StatusCode != 200 {
+		fmt.Println(response.StatusCode)
 		return nil ,  errors.New("如果不为200，则返回错误信息"+string(response.StatusCode))
 	}
 	return ioutil.ReadAll(response.Body)
@@ -24,7 +25,7 @@ func GetBodyByUrl(url string) ([]byte,error) {
 
 
 
-func unmarshal (data []byte) (*TxResult, error) {
+func DeSerializeTxResult (data []byte) (*TxResult, error) {
 	var result TxResult
 	err := json.Unmarshal(data, &result) ////第一个值传我们要反序列化的数据，第二个参数为要转化的类型的指针
 	if err != nil {
