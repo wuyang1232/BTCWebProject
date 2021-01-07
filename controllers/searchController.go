@@ -10,11 +10,11 @@ import (
 	"strings"
 )
 
-type HomeController struct {
+type SerachController struct {
 	beego.Controller
 }
 //获取前端传来的比特币节点rpc命令和参数 ，在后台向比特币节点发起rpc请求 将结果返回给前端
-func (h *HomeController) Post() {
+func (h *SerachController) Post() {
 	data := h.Ctx.Request.Form.Get("pram")
 	fmt.Println("js发来的数据信息:", data)
 	if data == "" {
@@ -106,6 +106,6 @@ func Insert_Str(str string,old string,new string) string{
 	st := strings.Replace(str,old,new,-1)
 	return st
 }
-func (h *HomeController) Get() {
-	h.TplName = "home.html"
+func (h *SerachController) Get() {
+	h.TplName = "search.html"
 }

@@ -749,16 +749,17 @@
 
                         <!--数据信息表格 -->
 
-                            <div class="select_table_div">
-                                <input type="search" name="data" placeholder="rpc查询命令 参数" id="select_table"
-                                       onfocus="bc()" onblur="lk()" onclick="bc()">
-                            </div>
-                            <div class="select_button_div">
-                                <input type="button" id="select_btn" value="查询" class="select_button">
-                            </div>
-                            <div id="mybox" style="position: absolute;top: 0%;left: 30%; width:700px;height:500px;border: 3px solid black">
-                                <p id="show"></p>
-                            </div>
+                        <div class="select_table_div">
+                            <input type="search" name="data" placeholder="rpc查询命令 参数" id="select_table"
+                                   onfocus="bc()" onblur="lk()" onclick="bc()">
+                        </div>
+                        <div class="select_button_div">
+                            <input type="button" id="select_btn" value="查询" class="select_button">
+                        </div>
+                        <div id="mybox"
+                             style="position: absolute;top: 0%;left: 30%; width:700px;height:500px;border: 3px solid black">
+                            <p id="show"></p>
+                        </div>
 
 
                         <div class="hr hr-18 dotted hr-double"></div>
@@ -1233,13 +1234,13 @@
     var btn = document.getElementById("select_btn");
     btn.addEventListener("click", function () {
         var pram = document.getElementById("select_table").value;
-        if (pram.length<=0){
+        if (pram.length <= 0) {
             return
         }
         // alert(pram)
         //ajax发送请求
         var xhr = new XMLHttpRequest();
-        xhr.open('post', '/home');
+        xhr.open('post', '/search');
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send('pram=' + pram);
 
@@ -1249,8 +1250,8 @@
             if (xhr.readyState == 4 && xhr.status == 200) {
                 // alert(xhr.response);
                 document.getElementById("show").innerHTML = xhr.response
-                }
             }
+        }
 
     })
 

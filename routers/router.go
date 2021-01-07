@@ -25,7 +25,7 @@ func init() {
 	//根据高度获取区块的hash值
 	beego.Router("/getblockhashbyheight", &controllers.GetBlockHashByHeight{})
 
-    beego.Router("/home", &controllers.HomeController{})
+    beego.Router("/search", &controllers.SerachController{})
 	//方法搜索
 	beego.Router("/select", &controllers.SelectController{})
 	//方法搜索后数据展示
