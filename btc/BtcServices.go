@@ -21,6 +21,19 @@ func GetBlockChainInfo()(*modles.BlockChainInfo,error)  {
 	return &blockchain,nil
 }
 
+//比特币节点命令 getblockchaininfo 的封装函数
+func GetWalletInfo()(*modles.WalletInfo,error)  {
+	result, err := GetMsgByCommand("getwalletinfo")
+	if err != nil {
+		return nil,err
+	}
+	var walletinfo modles.WalletInfo
+	err = mapstructure.Decode(result.Result, &walletinfo)
+	if err != nil{
+		return nil,err
+	}
+	return &walletinfo,nil
+}
 //比特币节点命令 getblockcount 的封装函数
 func GetBlockCount() (interface{}, error) {
 	result, err := GetMsgByCommand("getblockcount")

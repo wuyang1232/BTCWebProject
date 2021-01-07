@@ -50,11 +50,18 @@ func main() {
 	//fmt.Println("影响的行数：",rows)
 
 	//获取区块的难度
-	diffint,err := btc.SaveGetDifficulty()
-	if err != nil{
-		fmt.Println(err.Error())
-	}
-	fmt.Println("影响的行数：", diffint)
-	beego.Run()
+	//diffint,err := btc.SaveGetDifficulty()
+	//if err != nil{
+	//	fmt.Println(err.Error())
+	//}
+	//fmt.Println("影响的行数：", diffint)
+	//获取钱包信息
+	//walletInfo,err := btc.GetWalletInfo()
+	//row,err := walletInfo.SaveGetWalletInfo()
+	//if err != nil {
+	//	fmt.Println("数据保存失败，请重试：",err.Error())
+	//}
+	//fmt.Println("影响的行数：",row)
+	//beego.Run()
 
 }

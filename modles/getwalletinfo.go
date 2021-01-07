@@ -9,7 +9,7 @@ import (
 func (w WalletInfo) SaveGetWalletInfo() (int64, error) {
 		//插入数据
 		result, err := mysql.DB.Exec("insert into getwalletinfo(walletname,walletversion,balance,unconfirmed_balance,immature_balance,txcount,keypoololdest,keypoolsize,hdseedid,keypoolsize_hd_internal,paytxfee,private_keys_enabled,avoid_reuse,scanning)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-			w.Walletname, w.Walletversion, w.balance, w.unconfirmed_balance, w.immature_balance, w.Txcount, w.Keypoololdest, w.keypoolsize, w.hdseedid, w.paytxfee, w.private_keys_enabled, w.avoid_reuse, w.scanning)
+			w.Walletname, w.Walletversion, w.balance, w.unconfirmed_balance, w.immature_balance, w.Txcount, w.Keypoololdest, w.keypoolsize, w.hdseedid, w.keypoolsize_hd_internal,w.paytxfee, w.private_keys_enabled, w.avoid_reuse, w.scanning)
 		if err != nil {
 			fmt.Println("保存数据失败,请重试：", err.Error())
 		}
