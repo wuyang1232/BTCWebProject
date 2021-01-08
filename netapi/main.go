@@ -3,6 +3,7 @@ package main
 import (
 	"BTCWebProject/netapi/getblockInfo"
 	"fmt"
+	"github.com/astaxie/beego"
 )
 
 func main() {
@@ -10,5 +11,4 @@ func main() {
 
 	//getblockInfo.GetBlocK0()
 	getblockInfo.ReturnLatestBlock()
-
 }

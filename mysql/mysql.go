@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/astaxie/beego"
-	_ "大一下学期/github.com/go-sql-driver/mysql"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var DB *sql.DB

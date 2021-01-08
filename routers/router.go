@@ -29,7 +29,7 @@ func init() {
 	//获取钱包信息
 	beego.Router("/getwalletinfo", &controllers.GetWalletInfoController{})
 
-    beego.Router("/home", &controllers.HomeController{})
+    beego.Router("/search", &controllers.SerachController{})
 	//方法搜索
 	beego.Router("/select", &controllers.SelectController{})
 	//方法搜索后数据展示
