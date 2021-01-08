@@ -15,7 +15,7 @@ func (g *GetWalletInfoController) Get(){
 	//查询数据库中是否存在钱包信息
 	wallet := &modles.WalletInfo{
 		Walletname:              "",
-		Walletversion:           0,
+		Walletversion:           169900,
 		Balance:                 0,
 		Unconfirmed_balance:     0,
 		Immature_balance:        0,
