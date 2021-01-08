@@ -50,7 +50,7 @@ func (a AddressInfo) QueryGetAddressInfoData() (*AddressInfo,error){
 	row := mysql.DB.QueryRow("select address,scriptPubKey,ismine,solvable,iswatchonly,isscript,iswitness,pubkey,iscompressed,ischange,timestamp,hdkeypath,hdseedid,hdmasterfingerprint from getaddressinfo where address = ?",
 		a.Address)
 	err := row.Scan(&a.Address,&a.ScriptPubkey,&a.Ismine,&a.Solvable,&a.Iswatchonly,&a.Isscript,&a.Iswitness,&a.Pubkey,&a.Iscompressed,
-		a.Ischange,&a.Timestamp,&a.Hdkeypath,&a.Hdseedid,&a.Hdmasterfingerprint)
+		&a.Ischange,&a.Timestamp,&a.Hdkeypath,&a.Hdseedid,&a.Hdmasterfingerprint)
 	if err != nil {
 		fmt.Println("数据查询失败，请重试", err.Error())
 		return nil, err

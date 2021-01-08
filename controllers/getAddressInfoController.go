@@ -14,7 +14,7 @@ type GetAddressInfoController struct {
 func (g *GetAddressInfoController) Get(){
 	//查询数据库中是否有地址信息
 	address := &modles.AddressInfo{
-		Address:             "",
+		Address:             "bc1q4xhvvtuqyl76lhmzyfqpx0xnle6sysvmlwu955",
 		ScriptPubkey:        "",
 		Ismine:              false,
 		Solvable:            false,
